@@ -1,17 +1,18 @@
+/*
+1.导入react react-dom
+2.通过react的API 创建react元素 虚拟DOM
+3.把react元素渲染到页面
+*/
 import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import ReactDOM from 'react-dom';
+/*
+<h1 id="box">我是内容<h1>
+参数一：标签的名字H1 p div
+参数2：标签的属性，对象
+参数3：标签的内容
+*/ 
+const element = React.createElement('h1',{id:'box',title:'hahah'},'am the content');
+ReactDOM.render(element,document.getElementById('root'));
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+const element2 = React.createElement('div',{id:'demo',className:'aa'},'am the content 2');
+ReactDOM.render(element2,document.getElementById('root'))
