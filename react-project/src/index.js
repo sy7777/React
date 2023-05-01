@@ -1,16 +1,4 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import{ createRoot } from 'react-dom/client';
 
-// create element
-const element = React.createElement(
-    'ul',
-    {className:'list'},
-    // '<li>banana</li>'
-    [
-        React.createElement('li',null,'banana'),
-        React.createElement('li',null,'apple'),
-        React.createElement('li',null,'orange'),
-        React.createElement('li','xxxx'),
-    ]
-)
-ReactDOM.render(element,document.getElementById('root'));
+const root = createRoot(document.querySelector('#root'));
+root.render(<h1>Hello, React</h1>);
