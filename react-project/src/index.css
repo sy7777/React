@@ -5,3 +5,8 @@
     list-style:none;
     background-color: #f8f8f8;
 }
+.selected{
+    color:#333;
+    font-weight:bold;
+    background-color: #fff;
+}
