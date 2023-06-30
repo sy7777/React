@@ -1,6 +1,8 @@
 import {useState} from 'react';
+import './App.scss'
+import avatar from './images/bozai.png'
 
-
+import orderBy from 'lodash/orderBy'
 const App = ()=>{
     const [count, setCount] = useState(10)
     const [list, setList] = useState(['banana','apple'])
