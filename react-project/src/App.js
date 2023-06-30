@@ -1,34 +1,14 @@
 import {useState} from 'react';
 import './App.scss'
-import avatar from './images/bozai.png'
+import avatar11 from './images/bozai.png'
 
 import orderBy from 'lodash/orderBy'
-const App = ()=>{
-    const [count, setCount] = useState(10)
-    const [list, setList] = useState(['banana','apple'])
+const App=()=>{
     return(
-        <div>
-            <div>
-                <h1>Counter: {count}</h1>
-                <button onClick={()=>setCount(count+1)}>+1</button>
-            </div>
-            <hr/>
-            <div>
-                <h1>List: {list.join(",")}</h1>
-                {/* 不能用push因为数组必须渲染新的 */}
-                <button onClick={()=>setList([...list,'pear'])}>Add</button>
-                <button onClick={()=>setList(list.filter(i=>i !== 'pear'))}>Delete</button>
-                <button onClick={()=>setList(list.map(item =>{
-                    if(item === 'pear'){
-                        return 'orange';
-                    }
-                    return item;
-                }))}>Change</button>
-            </div>
-            <hr/>
+        <div className='app'>
+            App Componets
+            <img src={avatar11} alt=''/>
         </div>
-
-
     )
 }
 export default App;
