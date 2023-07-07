@@ -1,0 +1,19 @@
+{
+  "todos": [
+    {
+      "id": 1,
+      "text": "学习React",
+      "done": false
+    },
+    {
+      "id": 2,
+      "text": "休息",
+      "done": false
+    },
+    {
+      "id": 3,
+      "text": "吃饭",
+      "done": true
+    }
+  ]
+}

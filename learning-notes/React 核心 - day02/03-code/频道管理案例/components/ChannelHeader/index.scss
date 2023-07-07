@@ -1,0 +1,20 @@
+.channelHeader {
+  display: flex;
+  justify-content: space-between;
+
+  .header {
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+  }
+  .headerDesc {
+    vertical-align: middle;
+    margin-left: 10px;
+    color: #bbb;
+    font-size: 14px;
+    font-weight: normal;
+  }
+  .opration {
+    color: #3f7bcd;
+  }
+}
