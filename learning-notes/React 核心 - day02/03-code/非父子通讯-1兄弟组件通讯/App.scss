@@ -1,0 +1,81 @@
+.app {
+  display: flex;
+  height: 500px;
+  width: 600px;
+  margin: 50px auto 0;
+  border: 1px solid #f3f3f3;
+}
+
+// 左侧好友列表样式
+.friends {
+  width: 240px;
+  height: 100%;
+  border-right: 1px solid #e0e0e0;
+
+  .selected {
+    background-color: #dedede;
+  }
+  .friend {
+    display: flex;
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    cursor: pointer;
+
+    .avatar {
+      width: 40px;
+      height: 40px;
+      margin-right: 10px;
+      border-radius: 5px;
+    }
+
+    .info {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      flex: 1;
+
+      .row {
+        display: flex;
+        justify-content: space-between;
+
+        .name {
+          font-size: 16px;
+          line-height: 1;
+          color: #333;
+        }
+        .date {
+          color: #9a9a9a;
+          font-size: 12px;
+        }
+      }
+
+      .msg {
+        color: #9a9a9a;
+        font-size: 14px;
+      }
+    }
+  }
+}
+
+// 右侧聊天框样式
+.chat-wrapper {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background-color: #f3f3f3;
+  .header {
+    height: 60px;
+    padding-left: 25px;
+    line-height: 60px;
+    border-bottom: 1px solid #e0e0e0;
+    font-size: 18px;
+  }
+  .list {
+    flex: 1;
+  }
+  .input {
+    height: 130px;
+    border-top: 1px solid #e0e0e0;
+  }
+}

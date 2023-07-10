@@ -1,0 +1,100 @@
+{
+  "channels": [
+    {
+      "id": 1,
+      "name": "全站",
+      "selected": true,
+      "canEdit": false
+    },
+    {
+      "id": 2,
+      "name": "直播",
+      "selected": true,
+      "canEdit": true
+    },
+    {
+      "id": 3,
+      "name": "高赞",
+      "selected": true,
+      "canEdit": true
+    },
+    {
+      "id": 4,
+      "name": "脑洞",
+      "selected": true,
+      "canEdit": true
+    },
+    {
+      "id": 5,
+      "name": "校园",
+      "selected": false,
+      "canEdit": true
+    },
+    {
+      "id": 6,
+      "name": "娱乐",
+      "selected": true,
+      "canEdit": true
+    },
+    {
+      "id": 7,
+      "name": "电竞",
+      "selected": false,
+      "canEdit": true
+    },
+    {
+      "id": 8,
+      "name": "健康",
+      "selected": false,
+      "canEdit": true
+    },
+    {
+      "id": 9,
+      "name": "心理",
+      "selected": false,
+      "canEdit": true
+    },
+    {
+      "id": 10,
+      "name": "数码",
+      "selected": false,
+      "canEdit": true
+    },
+    {
+      "id": 11,
+      "name": "职场",
+      "selected": true,
+      "canEdit": true
+    },
+    {
+      "id": 12,
+      "name": "故事",
+      "selected": true,
+      "canEdit": true
+    },
+    {
+      "id": 13,
+      "name": "知识",
+      "selected": false,
+      "canEdit": true
+    },
+    {
+      "id": 14,
+      "name": "时尚",
+      "selected": true,
+      "canEdit": true
+    },
+    {
+      "id": 15,
+      "name": "动漫",
+      "selected": true,
+      "canEdit": true
+    },
+    {
+      "id": 16,
+      "name": "汽车",
+      "selected": true,
+      "canEdit": true
+    }
+  ]
+}
