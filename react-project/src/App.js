@@ -1,36 +1,37 @@
 import {useState} from 'react';
+import {useRef} from 'react';
 import './App.scss'
 import avatar from './images/bozai.png'
-
+import dayjs from 'dayjs'
 import orderBy from 'lodash/orderBy'
 
 /**
- * 评论列表的渲染和操作
+ * render comment list and action
  *
- * 1. 根据状态渲染评论列表
- * 2. 删除评论
- * 3. 喜欢和不喜欢
+ * 1. render comment based on state
+ * 2. delete comment
+ * 3. like or dislik
  */
 
-// 评论列表数据
+// comment list
 const defaultList = [
   {
-    // 评论id
+    // comment id
     rpid: 3,
-    // 用户信息
+    // user info
     user: {
       uid: '13258165',
       avatar:
         'https://yjy-teach-oss.oss-cn-beijing.aliyuncs.com/reactbase/comment/zhoujielun.jpeg',
-      uname: '周杰伦',
+      uname: 'Jay Chou',
     },
-    // 评论内容
-    content: '哎哟，不错哦',
-    // 评论时间
+    // content
+    content: 'Cool',
+    // time
     ctime: '10-18 08:15',
-    // 喜欢数量
+    // number of like
     like: 98,
-    // 0：未表态 1: 喜欢 2: 不喜欢
+    // 0：no state 1: like 2: dislike
     action: 0,
   },
   {
@@ -39,9 +40,9 @@ const defaultList = [
       uid: '36080105',
       avatar:
         'https://yjy-teach-oss.oss-cn-beijing.aliyuncs.com/reactbase/comment/xusong.jpeg',
-      uname: '许嵩',
+      uname: 'Xu song',
     },
-    content: '我寻你千百度 日出到迟暮',
+    content: 'God',
     ctime: '11-13 11:29',
     like: 88,
     action: 2,
@@ -51,26 +52,23 @@ const defaultList = [
     user: {
       uid: '30009257',
       avatar,
-      uname: '黑马前端',
+      uname: 'Black Horse',
     },
-    content: '学前端就来黑马',
+    content: 'Welcome to here',
     ctime: '10-19 09:00',
     like: 66,
     action: 1,
   },
 ]
-// 当前登录用户信息
+// current use info
 const user = {
-  // 用户id
   uid: '30009257',
-  // 用户头像
   avatar,
-  // 用户昵称
   uname: '黑马前端',
 }
 
 /**
- * 导航 Tab 的渲染和操作
+ * nav Tab
  *
  * 1. 渲染导航 Tab 和高亮
  * 2. 评论列表排序
@@ -80,22 +78,22 @@ const user = {
 
 // 导航 Tab 数组
 const tabs = [
-  { type: 'hot', text: '最热' },
-  { type: 'time', text: '最新' },
+  { type: 'hot', text: 'Hot' },
+  { type: 'time', text: 'New' },
 ]
 
 const App = () => {
-  // 导航 Tab 高亮的状态
+  // highlight
   const [activeTab, setActiveTab] = useState('hot')
   const [list, setList] = useState(defaultList)
 
-  // 删除评论
+  // delete
   const onDelete = rpid => {
     // 如果要删除数组中的元素，需要调用 filter 方法，并且一定要调用 setList 才能更新状态
     setList(list.filter(item => item.rpid !== rpid))
   }
 
-  // 喜欢
+  // Like
   const onLike = rpid => {
     setList(
       list.map(item => {
@@ -113,7 +111,7 @@ const App = () => {
     )
   }
 
-  // 不喜欢
+  // dislike
   const onDislike = rpid => {
     setList(
       list.map(item => {
@@ -148,18 +146,47 @@ const App = () => {
     setList(newList)
   }
 
+// comment area
+  const [value, setValue] = useState('');
+  const [checked, setChecked] = useState(false);
+
+  // add new comment
+  const addComment=()=>{
+    if(value.trim() ===''){
+      return textAreaRef.current.focus();
+    }
+    const comment = {
+      rpid : Date.now(),
+      user,
+      content: value,
+      ctime: dayjs().format('MM-DD HH:mm'),
+      like:0,
+      action:0
+    }
+    const newList = [comment, ...list];
+    if(activeTab === 'time'){
+      setList(orderBy(newList, 'ctime', 'aesc'))
+    }else{
+      setList(orderBy(newList, 'like', 'desc'))
+    }
+    setValue('');
+
+  }
+  const textAreaRef=useRef(null);
+  const inpuRef=useRef(null);
   return (
+
     <div className="app">
-      {/* 导航 Tab */}
+      {/* navTab */}
       <div className="reply-navigation">
         <ul className="nav-bar">
           <li className="nav-title">
-            <span className="nav-title-text">评论</span>
-            {/* 评论数量 */}
+            <span className="nav-title-text">Comment</span>
+            {/* comment number */}
             <span className="total-reply">{list.length}</span>
           </li>
           <li className="nav-sort">
-            {/* 高亮类名： active */}
+            {/* highlight classname： active */}
             {tabs.map(item => {
               return (
                 <div
@@ -190,11 +217,16 @@ const App = () => {
             {/* 评论框 */}
             <textarea
               className="reply-box-textarea"
-              placeholder="发一条友善的评论"
+              placeholder="add your comment"
+              value={value}
+              onChange={e=>setValue(e.target.value)}
+              ref={textAreaRef}
             />
             {/* 发布按钮 */}
             <div className="reply-box-send">
-              <div className="send-text">发布</div>
+              <div className="send-text" onClick={()=>
+                addComment() 
+              }>Publish</div>
             </div>
           </div>
         </div>
@@ -267,6 +299,23 @@ const App = () => {
           })}
         </div>
         {list.length === 0 && <div className="reply-none">暂无评论</div>}{' '}
+      </div>
+
+      <div>
+        {/* value and onchange exist at the same time */}
+        <input value={value} onChange={e=>setValue(e.target.value)} />
+        <button onClick={()=>alert(value)}>Get</button>
+        <button onClick={()=>setValue('changed value')}>Change</button>
+        <hr />
+        <input type="checkbox" checked={checked} onChange={(e)=>{setChecked(e.target.checked)}} />
+        {checked ? 'checked':'unchecked'}
+      </div>
+
+      <div>
+        <input ref={inpuRef}></input>
+        <hr/>
+        <button onClick={()=>console.log(inpuRef.current.value)}>get value</button>
+        <button onClick={()=>console.log(inpuRef.current.focus())}>get focus</button>
       </div>
     </div>
   )
