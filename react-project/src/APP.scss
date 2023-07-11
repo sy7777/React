@@ -288,4 +288,27 @@
     line-height: 64px;
     text-align: center;
   }
+
+  .app {
+    width: 80%;
+  }
+  
+  .todo {
+    display: flex;
+    padding: 10px;
+    margin-bottom: 15px;
+    background-color: skyblue;
+    cursor: pointer;
+  
+    div {
+      flex: 1;
+    }
+  }
+  
+  .todo-done {
+    div {
+      color: #fff;
+      text-decoration: line-through;
+    }
+  }
   
