@@ -1,97 +1,68 @@
-import { useContext, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { createContext } from 'react'
 import './App.scss'
 
-// 跨组件通讯 - Context
-// 1. 创建 Context 对象
-const ThemeContext = createContext()
+// 聊天室
+const ChatRoom = ({ roomId, isChatting }) => {
+    // ...
+    console.log('当前房间：', roomId)
+    // console.log('ischatting:', isChatting)
 
-// 2. 划定范围，提供共享数据
-// 3. 范围内的组件，获取共享数据
+    // 1. 挂载时，和默认聊天室建立连接,但是一直是music房间
+    // useEffect(() => {
+    //   console.log('建立连接： music 房间')
+    // }, [])
 
-// -------------------------侧边栏-----------------------
-const Sidebar = () => {
-  return (
-    <div className="sidebar">
-      <Menu />
-    </div>
-  )
-}
-const Menu = () => {
-  return (
-    <div className="menu">
-      <ul>
-        <MenuItem />
-        <MenuItem />
-      </ul>
-    </div>
-  )
-}
-const MenuItem = () => {
-  // 3. 范围内的组件，获取共享数据
-  const { theme } = useContext(ThemeContext)
-  return <li style={{ color: theme }}>菜单</li>
-}
+    // 2. 更新时，和最新聊天室建立连接
+    // 注意：该调用方式会在组件挂载以及更新时都会执行
+    useEffect(() => {
+      console.log(`建立连接： ${roomId} 房间`)
+    }, [roomId])
 
-// -------------------------右侧内容-----------------------
-const Content = () => {
-  const { theme } = useContext(ThemeContext)
-  return (
-    <div className="content">
-      <div className="main" style={{ color: theme }}>
-        Context 跨组件通讯
+    // 3. 卸载时，和聊天室断开连接
+    useEffect(() => {
+      return () => {
+        console.log('断开连接')
+      }
+    }, [])
+
+    return (
+      <div className="chat-room">
+        <h1>welcome to {roomId} room!</h1>
       </div>
-      <Footer />
-    </div>
-  )
+    )
 }
-const Footer = () => {
-  const { onReset } = useContext(ThemeContext)
-
-  return (
-    <div className="footer">
-      <button onClick={onReset}>重置主题</button>
-    </div>
-  )
-}
-
-// 父组件
 const App = () => {
-  // 要共享的主题颜色
-  const [theme, setTheme] = useState('#1677FF')
+    // id
+    const [roomId, setRoomId] = useState('music')
+    //   chatting
+    const [isChatting, setIsChatting] = useState(true);
 
-  // 重置主题的函数
-  const onReset = () => {
-    setTheme('#1677FF')
-  }
+    return (
+        <div className="app">
+            <button onClick={() => { setIsChatting(!isChatting); console.log('ischatting:', isChatting) }}>
+                {isChatting ? 'End the chat' : 'Start chatting'}
+            </button>
 
-  return (
-    <div className="app">
-      {/* 2. 划定范围，提供共享数据 */}
-      <ThemeContext.Provider
-        value={{
-          theme,
-          onReset,
-          // ...
-        }}
-      >
-        {/* 默认颜色： #1677FF */}
-        <input
-          className="theme-selector"
-          type="color"
-          value={theme}
-          onChange={e => setTheme(e.target.value)}
-        />
-
-        <div className="main">
-          {/* 侧边栏 */}
-          <Sidebar />
-          {/* 右侧内容 */}
-          <Content />
+            {isChatting ? (
+                <div>
+                    <label>
+                        Select the room：
+                        <select value={roomId} onChange={e => setRoomId(e.target.value)}>
+                            <option value="music">music</option>
+                            <option value="travel">travel</option>
+                            <option value="sports">sports</option>
+                        </select>
+                    </label>
+                    {/*chat room */}
+                    <ChatRoom roomId={roomId} isChatting={isChatting} />
+                </div>
+            ) : (
+                <p>Click【start chatting】button, start chatting~</p>
+            )}
         </div>
-      </ThemeContext.Provider>
-    </div>
-  )
+
+    )
 }
 
 export default App
