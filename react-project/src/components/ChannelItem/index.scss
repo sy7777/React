@@ -1,0 +1,27 @@
+.channel-item {
+  position: relative;
+  width: 75px;
+  height: 45px;
+  margin-bottom: 10px;
+  margin-right: 10px;
+  line-height: 45px;
+  border-radius: 23px;
+  font-size: 15px;
+  text-align: center;
+  background-color: #f6f6f6;
+
+  .icon {
+    display: none;
+    position: absolute;
+    right: -1px;
+    top: -1px;
+    width: 14px;
+    height: 14px;
+    line-height: 11px;
+    text-align: center;
+    color: #fff;
+    background-color: #d2d2d2;
+    border-radius: 50%;
+    transform: rotate(45deg);
+  }
+}
