@@ -400,7 +400,9 @@
   height: 500px;
   width: 600px;
   margin: 50px auto 0;
+  padding: 10px;
   border: 1px solid #d5d5d5;
+  box-sizing: border-box;
 }
 
 .theme-selector {
@@ -450,4 +452,13 @@
     box-sizing: border-box;
     text-align: center;
   }
+}
+
+
+// chat room
+.chat-room {
+  height: 400px;
+  margin-top: 10px;
+  padding: 10px;
+  border: 2px dashed skyblue;
 }
