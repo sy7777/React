@@ -30,7 +30,7 @@ const Menu = () => {
 const MenuItem = () => {
   // 3. 范围内的组件，获取共享数据
   const { theme } = useContext(ThemeContext)
-  return <li style={{ color: theme }}>菜单</li>
+  return <li style={{ color: theme }}>Menu Item 1</li>
 }
 
 // -------------------------右侧内容-----------------------
@@ -39,7 +39,7 @@ const Content = () => {
   return (
     <div className="content">
       <div className="main" style={{ color: theme }}>
-        Context 跨组件通讯
+        Context cross-component communication
       </div>
       <Footer />
     </div>
@@ -50,7 +50,7 @@ const Footer = () => {
 
   return (
     <div className="footer">
-      <button onClick={onReset}>重置主题</button>
+      <button onClick={onReset}>Reset the theme</button>
     </div>
   )
 }
