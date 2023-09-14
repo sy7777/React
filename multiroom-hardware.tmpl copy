@@ -1,0 +1,137 @@
+<div ng-controller="multiroomHardwareController">
+    <div ng-show="canOrderHardware && isEligible">
+        <!-- FETCH MIGHTY -->
+        <div ng-show="showMighty()">
+        <div class="bg-white border-grey margin-bottom-24 text-center-xs">
+            <div class="row padding-24">
+                <div class="col-md-6 col-sm-5" >
+                    <h5 class="font__secondary">{{ stbInfo.displayNamefetchMini | unsafe }}</h5>
+                    <p>Enjoy easy access to Free-to-Air TV. TV Apps, premium channels, YouTube, streaming apps, and the latest movies and shows, all on one simple menu, with universal search and one remote. Mini 4K is great on its own or as a Multiroom box, and is 4K capable.
+                        <br/>Each Mini 4K set top box requires a minimum internet download speed of 3Mbps for the best viewing experience. 4K resolution requires minimum download speed of 15Mbps, 4K content and 4K TV.
+                        <br/><a href="http://iinet.speedtestcustom.com" alt="check your broadband speed" target="_blank">Check your broadband speed</a> to see if you have at least 6Mbps.</p>
+                </div>
+                <div class="col-md-3 col-sm-3 plan-hardware__image" style="position:relative;">
+                    <img src="/_shared/0001-fetch-mini-4k.png" alt="Fetch Mighty" class="img-responsive" />
+                </div>
+                <div class="col-md-3 col-sm-4 plan-hardware__checkbox">
+                    <div elli-check-button price="$10" period="monthly" is-checked="isFetchMiniSelected" ng-click="toggleFetchMini(this); ii.te('Link Clicks', 'ProductPage', 'fetch_btn');"></div>
+                    <div class="plan-hardware__extra-costs">+ {{stbInfo.onetimeCost | currency}} upfront cost</div>
+                    <div class="plan-hardware__extra-costs">{{ freightText }}</div>
+                </div>
+            </div>
+        </div>
+        <div class="bg-white border-grey margin-bottom-24 text-center-xs">
+            <div class="row padding-24">
+                <div class="col-md-6 col-sm-5" >
+                    <h5 class="font__secondary">{{ mightyInfo.displayName | unsafe }}</h5>
+                    <p>
+                        The Fetch Mighty 1lets you record up to 6 shows at once to a mighty-sized hard drive that case store up to 585 hours of SD TV! Each additional set top box needs about 3Mbps of bandwidth - <a href="http://iinet.speedtestcustom.com" alt="check your broadband speed" target="_blank">check your broadband speed</a> to see if you have at least 6Mbps.
+                    </p>
+                </div>
+                <div class="col-md-3 col-sm-3 plan-hardware__image" style="position:relative;">
+                    <img src="/_shared/fetch-mighty.png" alt="Fetch Mighty" class="img-responsive" />
+                </div>
+                <div class="col-md-3 col-sm-4 plan-hardware__checkbox">
+                    <div elli-check-button price="$10" period="monthly" is-checked="isMightySelected" ng-click="toggleMighty(this); ii.te('Link Clicks', 'ProductPage', 'fetch_btn');"></div>
+                    <div class="plan-hardware__extra-costs">+ {{mightyInfo.onetimeCost | currency}} upfront cost</div>
+                    <div class="plan-hardware__extra-costs">{{ freightText }}</div>
+                </div>
+            </div>
+        </div>
+        </div>
+
+        <div ng-repeat="multiroom in getMultiroomsAvailable()">
+            <div ng-show="multiroom.show">
+                <div class="bg-white border-grey margin-bottom-24 text-center-xs">
+                    <div class="row padding-24">
+                        <div class="col-md-6 col-sm-5" >
+                            <h5 class="font__secondary">{{ stbInfo.displayNameHardware | unsafe }} #{{ multiroom.id + 1}}</h5>
+                            <p>Each additional Fetch set top box costs $10 per month an additional $89.99 setup fee. Each set top box requires a minimum internet download speed of 3Mbps for the best viewing experience. 4K resolution requires minimum 15Mbps download speed. Check your broadband speed <a href="http://iinet.speedtestcustom.com/" onclick="window.open('http://iinet.speedtestcustom.com/','speed_window','width=1024,height=768');return false;">here</a> to see if your internet download speed is sufficient.</p>
+                            <p style="font-size:12px; color:#808080">Customers with Fetch Mini 4K, Mighty or Gen2 units can purchase Multiroom</p>
+                            <a href="/tv/fetch/multiroom/">More information about Fetch Multiroom</a>
+                        </div>
+                        <div class="col-md-3 col-sm-3 plan-hardware__image" style="position:relative;">
+                            <img src="/_shared/0001-fetch-mini-4k.png" alt="Fetch Mini" class="img-responsive" />
+                        </div>
+                        <div class="col-md-3 col-sm-4 plan-hardware__checkbox">
+                            <div elli-check-button price="$10" period="monthly" is-checked="multiroom.selected" is-disabled="multiroom.disabled" ng-click="toggleMultiRoom(multiroom.id); ii.te('Link Clicks', 'ProductPage', 'fetch_btn');"></div>
+                            <div class="plan-hardware__extra-costs">+ $89.99 upfront cost</div>
+                            <div class="plan-hardware__extra-costs">{{ freightText }}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+   
+    <!-- Can't order hardware -->
+    <div ng-show="!canOrderHardware">
+        <div class="bg-white border-grey margin-bottom-24 text-center-xs">
+            <div class="row padding-24">
+                <div class="col-md-6 col-sm-5" >
+                    <h4 class="font__secondary">{{ stbInfo.displayNamefetchMini | unsafe }}</h4>
+                    <p>Enjoy easy access to Free-to-Air TV. TV Apps, premium channels, YouTube, streaming apps, and the latest movies and shows, all on one simple menu, with universal search and one remote. Mini 4K is great on its own or as a Multiroom box, and is 4K capable.
+                        <br/>Each Mini 4K set top box requires a minimum internet download speed of 3Mbps for the best viewing experience. 4K resolution requires minimum download speed of 15Mbps, 4K content and 4K TV.
+                        <br/><a href="http://iinet.speedtestcustom.com" alt="check your broadband speed" target="_blank">Check your broadband speed</a> to see if you have at least 6Mbps.</p>
+                </div>
+                <div class="col-md-3 col-sm-3 plan-hardware__image" style="position:relative;">
+                    <img src="/_shared/0001-fetch-mini-4k.png" alt="Fetch Mighty" class="img-responsive" />
+                </div>
+                <div class="col-md-3 col-sm-4 plan-hardware__checkbox">
+                    <span class="price-point price-sm" style="line-height: 0">$10<span class="price-period">per month</span></span>
+                    <div class="plan-hardware__extra-costs" style="padding-top: 12px">+ {{ stbInfo.onetimeCost | currency }} upfront cost</div>
+                    <div class="plan-hardware__extra-costs">{{ freightText }}</div>
+                    <p class="new-cust-copy"><span>New customer?</span><a href="/bundles/">Find an internet plan</a></p>
+                    <p class="existing-cust-copy"><span>Existing customer?</span><a href="/tv/fetch/">Get Fetch </a> and add <a ng-click="scrollToCustomerTab('existing')">Multiroom</a></p>
+                </div>
+            </div>
+        </div> 
+        <div class="bg-white border-grey margin-bottom-24 text-center-xs">
+            <div class="row padding-24">
+                <div class="col-md-6 col-sm-5" >
+                    <h4 class="font__secondary">{{ mightyInfo.displayName | unsafe }}</h4>
+                    <p>The Mighty brings you all the same great features as the Mini 4K, but with the added benefit of being able to record up to 585 hours of TV and up to 6 shows at a time, so you never miss your favourites. <br /> Each Mighty set top box requires a minimum internet download speed of 3Mpbs for the best viewing experience. 4K resolution requires minimum download speed of 15Mbps. 4K content and 4K TV. <a href="http://iinet.speedtestcustom.com" alt="check your broadband speed" target="_blank">Check your broadband speed</a> to see if you have at least 6Mbps.</p>
+                </div>
+                <div class="col-md-3 col-sm-3 plan-hardware__image" style="position:relative;">
+                    <img src="/_shared/fetch-mighty.png" alt="Fetch Mighty" class="img-responsive" />
+                </div>
+                <div class="col-md-3 col-sm-4 plan-hardware__checkbox">
+                    <span class="price-point price-sm" style="line-height: 0">$10<span class="price-period">per month</span></span>
+                    <div class="plan-hardware__extra-costs" style="padding-top: 12px">+ {{ mightyInfo.onetimeCost | currency }} upfront cost</div>
+                    <div class="plan-hardware__extra-costs">{{ freightText }}</div>
+                    <p class="new-cust-copy"><span>New customer?</span><a href="/bundles/">Find an internet plan</a></p>
+                    <p class="existing-cust-copy"><span>Existing customer?</span><a href="/tv/fetch/">Get Fetch </a> and add <a ng-click="scrollToCustomerTab('existing')">Multiroom</a></p>
+                </div>
+            </div>
+        </div>
+        <div class="bg-white border-grey margin-bottom-24 text-center-xs">
+            <div class="row padding-24">
+                <div class="col-md-6 col-sm-5" >
+                    <h4 class="font__secondary">{{ stbInfo.displayNameHardware | unsafe }}</h4>
+                    <p>Each additional Fetch Mini 4K set top box costs $10 per month, plus an additional upfront $89.99 setup fee. Max 3 boxes per household. Each Mini 4K set top box requires a minimum internet download speed of 3Mbps for the best viewing experience. 4K resolution requires minimum download speed of 15Mbps, 4K content and 4K TV. Check your broadband speed <a href="http://iinet.speedtestcustom.com/" onclick="window.open('http://iinet.speedtestcustom.com/','speed_window','width=1024,height=768');return false;">here</a> to see if your internet download speed is sufficient.</p>
+                    <p style="font-size:12px; color:#808080">Customers with Fetch Mini 4K, Mini, Mighty or Gen2 units can purchase Multiroom.</p>
+                    <a href="/tv/fetch/multiroom/">More information about Fetch Multiroom</a>
+                </div>
+                <div class="col-md-3 col-sm-3 plan-hardware__image" style="position:relative;">
+                    <img src="/_shared/0001-fetch-mini-4k.png" alt="Fetch Mini" class="img-responsive" />
+                </div>
+                <div class="col-md-3 col-sm-4 plan-hardware__checkbox">
+                    <span class="price-point price-sm" style="line-height: 0">$10<span class="price-period">per month</span></span>
+                    <p class="additional-set-top-box"><strong>per additional set top box (max 2)</strong></p>
+                    <div class="plan-hardware__extra-costs">+ {{ stbInfo.onetimeCost | currency }} setup fee for each additional box</div>
+                    <div class="plan-hardware__extra-costs">{{ freightText }}</div>
+                    <p class="new-cust-copy"><span>New customer?</span><a href="/bundles/">Find an internet plan</a></p>
+                    <p class="existing-cust-copy"><span>Existing customer?</span><a href="/tv/fetch/">Get Fetch </a> and add <a ng-click="scrollToCustomerTab('existing')">Multiroom</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div ng-show="debug">
+<pre style="width: 100%; overflow-x: scroll; position: relative">
+<h1>stbinfo</h1>
+{{stbInfo | json}}
+<h1>added products</h1>
+{{ debugAddedProducts() | json }}
+</pre>
+</div>
