@@ -29,9 +29,22 @@ console.log(summary);
 // ternaral operator
 // page > 1000 ? "over 1000" : "less than 1000"
 const selectedBook = getBookById(3);
-const [id, publicationDate, ...theRest] = selectedBook;
+const {id, publicationDate, ...theRest} = selectedBook;
 console.log(selectedBook);
 
 function getYear(){
 	return str.split("-")[0];
 }
+// truthy value return second, falsy value(0,'',null, undefined) return the first
+console.log("test" && "Some string");
+console.log(0 && "Some string");
+
+console.log("test2" || "Some string");
+console.log(0 || "Some string");
+
+const count = selectedBook.genres2 ?? "no data"
+
+
+// optional chaining object?.value ?? 0 , in case the object is undefined. if undefined, it gives us 0
+const x = [1,2,3,4,5].map((el)=> el * 2);
+console.log(x);
