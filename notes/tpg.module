@@ -82,3 +82,13 @@ function tpg_product_theme() {
  */
 function tpg_product_page_attachments(&$variables, $hook = null) {
 }
+
+/**
+ * Implements hook_theme_suggestions_HOOK_alter() to add a theme suggestion.
+ */
+function tpg_product_theme_suggestions_form_alter(array &$suggestions, array $variables) {
+  $route_name = \Drupal::routeMatch()->getRouteName();
+  if ($route_name == 'tpg_product.form_page') {
+    $suggestions[] = 'form__my_form';
+  }
+}
