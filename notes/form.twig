@@ -1,0 +1,83 @@
+<div class="modal fade bs-example-modal-lg" id="RegInterestModal" tabindex="-1" role="dialog" aria-labelledby="RegInterestModalLabel">
+    <div class="modal-dialog modal-widescreen" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="RegInterestModalLabel"><img alt="TPG" src="/sites/default/files/inline-images/tpg-logo.jpg"></h4>
+            </div>
+            <div class="modal-body">
+                <h2>Let Us Call You</h2>
+                <p class="hint-message">Fill in your details and we will contact you with TPG {{' ' ~ productname}} offer.</p>
+
+                <div class="successMsg" style="display:none;">
+                    Thank you for submitting your details. We will be in touch shortly.
+                    <br>
+                    <br>
+                </div>
+                <div class="errorMsg" style="display:none;">
+                    Unfortunately an error has occurred when processing your request. Please try again in a few minutes.
+                    <br> If you continue to experience the same problem, please contact TPG on 1300 403 211 for further assistance.
+                </div>
+                <div class="col-md-9">
+                    <form class="form-horizontal" name="regInterestForm" id="regInterestForm" ng-submit="TpgCommon.regInterestSubmit()">
+                        <h3>Contact Details</h3>
+                        <div class="form-group">
+                            <label for="nbnFirstName" class="col-sm-2 control-label padding-lr15">* First Name</label>
+                            <div class="col-sm-4">
+                                <input class="form-control" id="nbnFirstName" maxlength="20" name="nbnFirstName" type="text" placeholder="First Name" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="nbnLastName" class="col-sm-2 control-label padding-lr15">* Last Name</label>
+                            <div class="col-sm-4">
+                                <input class="form-control" id="nbnLastName" maxlength="20" name="nbnLastName" type="text" placeholder="Last Name" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="nbnEmailAddress" class="col-sm-2 control-label padding-lr15">* Email Address</label>
+                            <div class="col-sm-4">
+                                <input class="form-control" id="nbnEmailAddress" maxlength="255" name="nbnEmailAddress" type="text" placeholder="Type your email address" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="nbnConfirmEmail" class="col-sm-2 control-label padding-lr15">* Confirm Email</label>
+                            <div class="col-sm-4">
+                                <input class="form-control" id="nbnConfirmEmail" maxlength="255" name="nbnConfirmEmail" type="text" placeholder="Confirm your email address" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="nbnContactNo" class="col-sm-2 control-label padding-lr15">* Contact Number</label>
+                            <div class="col-sm-4">
+                                <input class="form-control" id="nbnContactNo" maxlength="10" size="10" name="nbnContactNo" type="tel" placeholder="Contact Number" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="is_tpg_customer" class="col-sm-2 control-label padding-lr15 longq">* Are you an existing TPG customer?</label>
+                            <div class="col-sm-4 shortinput">
+                                <select id="is_tpg_customer" name="is_tpg_customer" class="form-control">
+                                    <option value="0">No</option>
+                                    <option value="1">Yes</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="fulladdress_regint" class="col-sm-2 control-label padding-lr15">* Address</label>
+                            <div class="col-sm-10">
+                                <input id="fulladdress_regint" class="form-control nbnFullAddress" name="nbnFullAddress" type="text" placeholder="Please enter your address" />
+                                <a class="input-group-addon clickable hidden editAddress">Edit</a>
+                            </div>
+                            <div id="regint_addr_result"></div>
+                        </div>
+                        <input type="hidden" id="sqSkip" name="sqSkip" value="false">
+                        <input type="hidden" id="technology" name="technology" value="">
+                        <input type="hidden" id="lastSelectedPlan" name="lastSelectedPlan" value="">
+                        <button id="RegInterestSubmit" type="submit" class="btn btn-yframe" data-success="false" data-errormsg="false">Submit</button>
+                        <span class="form-disclaimer-point">By making an enquiry, you are consenting to TPG handling your personal information in accordance with our <a href="/about/privacy" target="_blank" class="clickable">Privacy Policy</a>. Please refer to our <a href="/about/collection-notice" target="_blank" class="clickable link">Personal Information Collection Notice</a> for information about how we might use or disclose your personal information and your rights regarding your information.</span>
+                    </form>
+                </div>
+
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+</div>
