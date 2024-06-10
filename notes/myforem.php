@@ -5,13 +5,13 @@ namespace Drupal\tpg_product\Form;
 use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
 
-class MyForm extends FormBase {
+class RegisterYourInterestForm extends FormBase {
 
   /**
    * {@inheritdoc}
    */
   public function getFormId() {
-    return 'my_form';
+    return 'register_your_interest_form';
   }
 
   /**
@@ -21,6 +21,28 @@ class MyForm extends FormBase {
     $form['name'] = [
       '#type' => 'textfield',
       '#title' => $this->t('Name'),
+      '#required' => TRUE,
+    ];
+
+    $form['contact_number'] = [
+      '#type' => 'tel',
+      '#title' => $this->t('Contact Number'),
+      '#required' => TRUE,
+    ];
+
+    $form['email'] = [
+      '#type' => 'email',
+      '#title' => $this->t('Email Address'),
+      '#required' => TRUE,
+    ];
+
+    $form['existing_member'] = [
+      '#type' => 'select',
+      '#title' => $this->t('Are you an existing member?'),
+      '#options' => [
+        'yes' => $this->t('Yes'),
+        'no' => $this->t('No'),
+      ],
       '#required' => TRUE,
     ];
 
@@ -36,6 +58,6 @@ class MyForm extends FormBase {
    * {@inheritdoc}
    */
   public function submitForm(array &$form, FormStateInterface $form_state) {
-    \Drupal::messenger()->addMessage($this->t('Form submitted by @name', ['@name' => $form_state->getValue('name')]));
+    // 提交表单处理逻辑
   }
 }
