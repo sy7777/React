@@ -1,0 +1,84 @@
+<?php
+
+/**
+ * @file
+ * Contains tpg_product.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function tpg_product_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    case 'help.page.tpg_product':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('TPG Product Drupal Module') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function tpg_product_theme() {
+  return [
+    'nbn_product' => [
+      'template' => 'nbn_product',
+      'render element' => 'children',
+      'variables' => array(
+          'data' => null,
+          'plans' => null
+      ),
+    ],
+    'nbn_business_product' => [
+      'template' => 'nbn_business_product',
+      'render element' => 'children',
+      'variables' => array(
+          'data' => null,
+          'plans' => null
+      ),
+    ],
+    'fttb_product' => [
+      'template' => 'fttb_product',
+      'render element' => 'children',
+      'variables' => array(
+          'groups' => null,
+          'contracts' => null,
+          'plans' => null,
+          'voicePack' => null,
+          'selectedPlan' => null
+      ),
+    ],
+    'fttb_product_v2' => [
+      'template' => 'fttb_product_v2',
+      'render element' => 'children',
+      'variables' => array (
+          'data' => null,
+      ),
+    ],
+    'adsl_product' => [
+      'template' => 'adsl_product',
+      'render element' => 'children',
+      'variables' => array(
+      ),
+    ],
+    'mobile_product' => [
+      'template' => 'mobile_product',
+      'render element' => 'children',
+      'variables' => array(
+          'data' => null
+      ),
+    ],
+  ];
+}
+
+/**
+ * Implements hook_page_attachments().
+ */
+function tpg_product_page_attachments(&$variables, $hook = null) {
+}
