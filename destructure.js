@@ -18,7 +18,7 @@ console.log(newGenres);
 
 
 const book = data[0];
-console.log(book);
+console.log('this is book',book);
 const updatedData = {book, publicationDate: "2024-5-14", pages:1210};
 console.log(updatedData);
 
@@ -48,3 +48,10 @@ const count = selectedBook.genres2 ?? "no data"
 // optional chaining object?.value ?? 0 , in case the object is undefined. if undefined, it gives us 0
 const x = [1,2,3,4,5].map((el)=> el * 2);
 console.log(x);
+
+const essentialData = data.map((b) => ({
+		id: b.id,
+		genres: b.genres,
+}));
+console.log(essentialData);
+

@@ -1,7 +1,3 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-
 const pizzaData = [
   {
     name: "Focaccia",
@@ -46,45 +42,3 @@ const pizzaData = [
     soldOut: false,
   },
 ];
-
-function App(){
-  return (
-    <div>
-      <Header />
-        <h1>Hello React!!!!</h1>;
-        <Pizza />
-        <Pizza />
-        <Footer />
-    </div>
-
-)}
-
-function Pizza(){
-  return (
-    <div>
-      <img src="pizzas/spinaci.jpg" alt="Pizaa spinact" srcset="" />
-       <h2>Pizza</h2>
-       <p>this is a description</p>
-    </div>
-  );
-}
-
-function Header(){
-  return <h1>Fast Pizza</h1>
-}
-
-function Menu(){
-  
-}
-
-function Footer(){
-  return React.createElement('footer', null, 'We are currently open')
-}
-// react v18
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-<App />
-);
-
-// react before 18
-// React.render(<App />);

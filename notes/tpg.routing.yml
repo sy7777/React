@@ -1,0 +1,9 @@
+tpg_product.cache_rebuild:
+    path: '/cache/rebuild'
+    defaults:
+        _controller: '\Drupal\tpg_product\Controller\ProductController::cacheRebuild'
+        _title: 'Cache Rebuild'
+    options:
+        _admin_route: TRUE
+    requirements:
+        _permission: 'administer site configuration'
