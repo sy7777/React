@@ -1,25 +1,142 @@
-tpg_product.cache_rebuild:
-    path: '/cache/rebuild'
-    defaults:
-        _controller: '\Drupal\tpg_product\Controller\ProductController::cacheRebuild'
-        _title: 'Cache Rebuild'
-    options:
-        _admin_route: TRUE
-    requirements:
-        _permission: 'administer site configuration'
+nbn:
+  version: 1.x;
+  css:
+    component:
+      css/product.css: {}
+      css/nbn.css: {}
+  js:
+    js/object.polyfill.js: {}
+    js/TpgProductCommon.js: {}
+    js/nbn-product.component.js: {}
+    js/livechat.js: {}
+    js/nbn_services/charges.service.js: {}
+    js/nbn_services/plan.service.js: {}
+    js/nbn_services/anchor.service.js: {}
+    js/nbn_services/extra-plans.service.js: {}
+    js/nbn_services/promotion.service.js: {}
+    js/nbn_services/self-install-kit.service.js: {}
+    js/nbn_services/moving-home.service.js: {}
+    js/nbn_services/modal.service.js: {}
+    js/gtm_ecommerce/ecommerce.js: {}
+    js/gtm_ecommerce/ecommerce-nbn.service.js: {}
+  dependencies:
+    - core/jquery
+    - maco/angular
+    - tpg_sq/sq-angular
 
-tpg_product.register_your_interest:
-    path: '/fttb/register_your_interest'
-    defaults:
-        _form: '\Drupal\tpg_product\Form\RegisterYourInterestFormFTTB'
-        _title: 'Register Your Interest Form For FTTB'
-    requirements:
-        _permission: 'access content'
+nbn-business:
+  version: 1.x;
+  css:
+    component:
+      css/product.css: {}
+  js:
+    js/TpgProductCommon.js: {}
+    js/app.js: {}
+    js/nbn-business-product.component.js: {}
+  dependencies:
+    - core/jquery
+    - maco/angular
 
-tpg_product.my_form_page:
-    path: '/my-form'
-    defaults:
-        _form: '\Drupal\tpg_product\Form\MyForm'
-        _title: 'My Form For FTTB'
-    requirements:
-        _permission: 'access content'
+fttb:
+  version: 1.x;
+  css:
+    component:
+      css/product.css: {}
+  js:
+    js/TpgProductCommon.js: {}
+    js/fttb-product.component.js: {}
+    js/livechat.js: {}
+  dependencies:
+    - core/jquery
+    - maco/angular
+    - tpg_sq/sq-angular
+
+fttb_v2:
+  version: 1.x;
+  css:
+    component:
+      css/product.css: {}
+      css/plan.css: {}
+  js:
+    js/TpgProductCommon.js: {}
+    js/fttb-product_v2.component.js: {}
+    js/livechat.js: {}
+    js/fttb_services/generic-service.js: {}
+    js/fttb_services/fttb-store.service.js: {}
+    js/fttb_services/moving-home.service.js: {}
+    js/fttb_services/popover.directive.js: {}
+    js/nbn_services/promotion.service.js: {}
+    js/nbn_services/extra-plans.service.js: {}
+  dependencies:
+    - core/jquery
+    - maco/angular
+    - maco/iinet-icons
+    - tpg_sq/sq-angular
+    - tpg_product/plan-comparison-modal
+
+adsl:
+  version: 1.x;
+  css:
+    component:
+      css/product.css: {}
+  js:
+    js/app.js: {}
+    js/adsl-product.component.js: {}
+  dependencies:
+    - core/jquery
+    - maco/angular
+
+mobile:
+  version: 1.x;
+  css:
+    component:
+      css/product.css: {}
+  js:
+    js/TpgProductCommon.js: {}
+    js/app.js: {}
+    js/mobile-product.component.js: {}
+    js/livechat-mobile.js: {}
+  dependencies:
+    - core/jquery
+    - maco/angular
+
+plan-comparison-modal:
+  version: 1.x;
+  css:
+    component:
+      css/plan-comparison.css: {}
+  js:
+    js/nbn_services/modal.service.js: {}
+  dependencies:
+    - core/jquery
+
+flag-component:
+  version: 1.x;
+  css:
+    component:
+      css/flags-modal.css: {}
+  js:
+    js/flag-modal.component.js: {}
+    js/flag-modal.service.js: {}
+  dependencies:
+    - maco/flag-icons
+
+register_your_interest_form_fttb:
+  version: 1.x;
+  css:
+    component:
+      css/fttb-form.css: {}
+  dependencies:
+    - core/jquery
+    - maco/angular
+    - tpg_sq/sq-angular
+
+fttb_form:
+  version: 1.x;
+  css:
+    theme:
+      css/fttb-form.css: {}
+  dependencies:
+    - core/jquery
+    - maco/angular
+    - tpg_sq/sq-angular
