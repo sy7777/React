@@ -1,0 +1,44 @@
+<?php
+
+/**
+ * @file
+ * Contains bluescope_subscribe_form.module.
+ */
+
+use Drupal\Core\Entity\EntityInterface;
+
+/**
+ * Implements hook_theme().
+ */
+function bluescope_subscribe_form_theme() {
+  return [
+    'paragraph__bluescope_subscribe_form' => [
+      'base hook' => 'paragraph',
+      'variables' => [
+        'form' => NULL,
+      ],
+    ],
+  ];
+}
+
+/**
+ * Implements hook_preprocess_paragraph().
+ */
+function bluescope_subscribe_form_preprocess_paragraph__bluescope_subscribe_form(&$variables) {
+  $variables['success'] = \Drupal::request()->get('success');
+
+  if ($variables['success']) {
+    return;
+  }
+}
+
+/**
+ * Set created date before save.
+ */
+function bluescope_subscribe_form_entity_presave(EntityInterface $entity) {
+  if ($entity->getEntityTypeId() == 'subscribe_form_entry') {
+    if ($entity->bundle() !== "block" && $entity->hasField('date_created')) {
+      $entity->set('date_created', strtotime('now'));
+    }
+  }
+}

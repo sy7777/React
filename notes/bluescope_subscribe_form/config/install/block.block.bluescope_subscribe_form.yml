@@ -1,0 +1,54 @@
+uuid: 97994691-9f96-4faf-86bc-5c19cf275fdd
+langcode: en
+status: true
+dependencies:
+  module:
+    - bluescope_subscribe_form
+    - system
+  theme:
+    - b3steelselect
+_core:
+  default_config_hash: rb4qqvsRo3ryghkIT5Fo-6wY_fcGjVY0BkQXQHo7OMg
+id: bluescope_subscribe_form
+theme: b3steelselect
+region: content
+weight: -14
+provider: null
+plugin: bluescope_subscribe_form_block
+settings:
+  id: bluescope_subscribe_form_block
+  label: 'Subscribe to SteelSelect® Magazine'
+  provider: bluescope_subscribe_form
+  label_display: visible
+  bluescope_subscribe_privacy:
+    value: "<p>By subscribing, I consent to BlueScope Steel Limited collecting and using the information in accordance with its Privacy Policy.</p>\r\n"
+    format: full_html
+  bluescope_subscribe_thankyou_title: 'Subscribe to SteelSelect® Magazine'
+  bluescope_subscribe_thankyou_message:
+    value: "<p>Look out for the next edition of SteelSelect magazine, delivering innovative architecture featuring steel straight to you. </p>\r\n"
+    format: full_html
+  bluescope_subscribe_salesforce_form_handler_url: 'http://go.demo.pardot.com/l/584573/2023-10-05/2gj6'
+  bluescope_subscribe_company_location: 1
+  bluescope_subscribe_job_title: 0
+  bluescope_subscribe_job_title_options: ''
+  bluescope_subscribe_project_type: 1
+  bluescope_subscribe_interested_in_flag: 0
+  bluescope_subscribe_interested_in_options: "1|Yes – I’d like to participate.\r\n0|No thanks"
+  bluescope_subscribe_block_id: bluescope_subscribe_form
+  bluescope_subscribe_content_preference: 1
+  bluescope_subscribe_content_preference_options: "Commercial |Commercial\r\nIndustrial|Industrial\r\nInstitutional|Institutional\r\nInterior|Interior\r\nResidential|Residential"
+  bluescope_subscribe_project_type_options: "General editorial content/articles|General editorial content/articles\r\nCase studies/projects|Case studies/projects\r\nProject photography/imagery|Project photography/imagery\r\nDetailed design problems and solutions|Detailed design problems and solutions (e.g. the STEEL PROFILE® STEEL DETAILS section)\r\nFeatured architects|Featured architects (e.g. the STEEL PROFILE® IN PROFILE section)\r\nResources/downloads|Resources/downloads\r\nOther|Other"
+  bluescope_subscribe_interested_in: 1
+  bluescope_subscribe_acknowledgement:
+    value: "<p>I acknowledge, and give consent for the information collected in this form to be used for promotional, marketing and research purposes.</p>\r\n"
+    format: full_html
+  bluescope_subscription_types: "BlueScope® News (via email) | Keep updated with the latest content on STEEL SELECT® from Australia’s leading steel building product manufacturers – including industry news, product updates, project case studies and resource downloads. | BLUESCOPE_NEWS | yes\r\nSTEEL PROFILE® (via email) | Since 1981, BlueScope’s STEEL PROFILE® has showcased inspiring and innovative designs featuring steel as a dynamic element of Australian architecture. | SP_EMAIL | no"
+  bluescope_subscribe_thankyou_subtitle:
+    value: "<p>Thanks for subscribing!</p>\r\n"
+    format: full_html
+visibility:
+  request_path:
+    id: request_path
+    pages: /subscribe
+    negate: false
+    context_mapping: {  }
