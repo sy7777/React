@@ -1,0 +1,25 @@
+tpg_product.cache_rebuild:
+    path: '/cache/rebuild'
+    defaults:
+        _controller: '\Drupal\tpg_product\Controller\ProductController::cacheRebuild'
+        _title: 'Cache Rebuild'
+    options:
+        _admin_route: TRUE
+    requirements:
+        _permission: 'administer site configuration'
+
+tpg_product.register_your_interest:
+    path: '/fttb/register_your_interest'
+    defaults:
+        _form: '\Drupal\tpg_product\Form\RegisterYourInterestFormFTTB'
+        _title: 'Register Your Interest Form For FTTB'
+    requirements:
+        _permission: 'access content'
+
+tpg_product.my_form_page:
+    path: '/my-form'
+    defaults:
+        _form: '\Drupal\tpg_product\Form\MyForm'
+        _title: 'My Form For FTTB'
+    requirements:
+        _permission: 'access content'
