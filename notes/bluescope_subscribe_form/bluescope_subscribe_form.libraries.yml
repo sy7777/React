@@ -1,0 +1,4 @@
+customajax:
+  version: '1.0'
+  js:
+    js/customajax.js: {}
