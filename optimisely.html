@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+
+<body>
+	<script>
+		function performSearch(query) {
+			const searchUrl = `https://www.tpg.com.au/api/sq?addr=${encodeURIComponent(query)}`;
+		
+		
+			fetch(searchUrl)
+				.then(response => {
+					console.log('Response status:', response.status);
+					if (!response.ok) {
+						throw new Error('Network response was not ok ' + response.statusText);
+					}
+					return response.json();
+				})
+				.then(data => {
+					console.log('Search Results:', data);
+					handleSearchResponse(data);
+				})
+				.catch(error => {
+					console.error('Error:', error);
+				});
+		}
+		
+		
+		function handleSearchResponse(data) {
+			 if (data.formed_fulladdress.includes('Fibre to the Building')) {
+				openFttbPopUp();     
+			} else {
+				console.log('fttb service not available:', data.Services); // Debug log
+			}
+		}
+		
+		function closeModal() {
+		  const modalContainer = document.getElementById("modalContainer");
+		  const visionModal = document.getElementById("visionModal");
+		  const overlay = document.getElementById("overlay");
+		  
+			overlay.style.display = "none";
+			modalContainer.style.display = "none";
+			visionModal.style.display = "none";
+		  
+		  document.body.style.overflow = "auto";
+		}
+		
+		function goToNbnTracking(){
+		  closeModal();
+		  dataLayer.push({
+			  'event': 'optimizely_event',
+			  'optimizely_experiment': 'DCP-12667 TPG Fibre Pop Up', 
+			  'optimizely_variant': 'Variation#1',
+			  'page_referrer': document.referrer, 
+			  'page_location': document.location.href, 
+			  'link_text': 'Go Back to NBN Plans',
+			  'link_url': 'https://www.tpg.com.au/nbn',
+		  });
+		  console.log('BKR: GA4 Custom Event - nbn plan');
+		}
+		
+		function exploreFttbTracking(){
+		  dataLayer.push({
+			  'event': 'optimizely_event',
+			  'optimizely_experiment': 'DCP-12667 TPG Fibre Pop Up', 
+			  'optimizely_variant': 'Variation#1',
+			  'page_referrer': document.referrer, 
+			  'page_location': document.location.href, 
+			  'link_text': 'Explore TPG Fibre Plans',
+			  'link_url': 'https://www.tpg.com.au/fttb',
+		  });
+		  console.log('BKR: GA4 Custom Event - fibre plan');
+		}
+		
+		function observeDOMChanges() {
+			const observer = new MutationObserver((mutations) => {
+				mutations.forEach((mutation) => {
+					if (mutation.addedNodes.length) {
+						mutation.addedNodes.forEach((node) => {
+							if (node.nodeType === 1 && node.classList.contains('sq-result-title')) {
+								performSearch(node.textContent.trim());
+							}
+						});
+					}
+				});
+			});
+		
+			observer.observe(document.body, {
+				childList: true,
+				subtree: true
+			});
+		
+			console.log('MutationObserver has been set up');
+		}
+		
+		document.addEventListener('DOMContentLoaded', (event) => {
+		  document.body.style.overflow = "auto";
+		  setTimeout(observeDOMChanges, 1000); 
+		
+		  
+		  const closeBtn = document.getElementById("closeBtn");
+		  const exploreFttbBtn = document.getElementById("exploreFttbBtn");
+		  const goToNbnBtn = document.getElementById("goToNbnBtn");
+		  
+		  closeBtn.addEventListener("click", closeModal);
+		  goToNbnBtn.addEventListener("click", goToNbnTracking); 
+		  exploreFttbBtn.addEventListener("click", exploreFttbTracking);
+		
+		});
+		
+		function openFttbPopUp() {
+			popUpLoadTracking();
+			document.body.style.overflow = "hidden";
+			const modalContainer = document.getElementById("modalContainer");
+			const visionModal = document.getElementById("visionModal");
+			const overlay = document.getElementById("overlay");
+		
+			overlay.style.display = "block";
+			modalContainer.style.display = "block";
+			visionModal.style.display = "block";
+		
+			overlay.onclick = function(event) {
+				if (event.target === overlay) {
+					closeModal();
+				}
+			};
+		}
+		
+		
+		function  popUpLoadTracking(){
+		  dataLayer.push({
+			  'event': 'modal_tab',
+			  'optimizely_experiment': 'DCP-12667 TPG Fibre Pop Up', 
+			  'optimizely_variant': 'Variation#1', 
+			  'page_referrer': document.referrer, 
+			  'page_location': document.location.href, 
+		  });
+		  console.log('BKR: GA4 Custom Event - pop-up shown');
+		}
+	</script>
+</body>
+</html>

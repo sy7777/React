@@ -1,0 +1,1 @@
+我在Structure -> Block layout -> Theme Maco -> Main content下看到有block 1 和block2， block1 的requestparameter的queryparameter 是offer=1,pages写的是/nbn, block2的 request param的queryparameter是offer=1并且negate the condition,pages写的是/nbn, 我访问/nbn和/nbn?offer=1的时候就会显示不同的block1和block2，但是为什么我view1和view2也是这么设置的，就不显示呢
