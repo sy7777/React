@@ -1,0 +1,25 @@
+uuid: 7e18bb69-48d0-466e-89b0-7bff4c511bb7
+langcode: en
+status: true
+dependencies:
+  module:
+    - tpg_sq
+  theme:
+    - poc
+id: sqmodals
+theme: poc
+region: copyright
+weight: 2
+provider: null
+plugin: sq_modals
+settings:
+  id: sq_modals
+  label: 'SQ Modals'
+  provider: tpg_sq
+  label_display: '0'
+visibility: 
+  request_path:
+    id: request_path
+    pages: "<front>"
+    negate: false
+    context_mapping: {  }

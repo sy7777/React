@@ -1,0 +1,76 @@
+{% if content_type == "dynamic_layout" %}
+    {{ attach_library('poc/jaejin-style') }}
+{% endif %}
+{{ attach_library('tpg_sq/sq-angular') }}
+
+<div id="ng-sqresult" ng-controller="SqController">
+
+    <div ng-hide="hasSqResult() && !isHomePage()">
+        {% if title %}
+        <h2 id="sq-heading" class="sq-heading">
+            Let&rsquo;s check your address to get started
+        </h2>
+        {% endif %}
+
+        <div class="check-availability" id="sq-wrapper" ng-class="{loaded: true}">
+            <div class="location-icon"><span class="fa fa-map-marker" aria-hidden="true"></span></div>
+            <label for="address" class="hidden">Input for the address of your internet connection1</label>
+            <input id="address" class="sq-address-input" placeholder="{{ placeholder }}" type="text" data-splash="yes" data-nomatch="dialog" data-business="{{ business_type }}" />
+        </div>
+    </div>
+
+    <div ng-hide="!hasSqResult()" class="ng-sq" ng-class="{loaded: true}">
+        <div id="dynamicSQResultContainer" ng-if="!isHomePage()" class="inside_container pt-20 pb-40 pr-20 pl-20 mb-40" style="padding-bottom: 40px">
+            {% include '@tpg_sq/angular/whenIncompleteInvalid.html.twig' %}
+            {% include '@tpg_sq/angular/whenHighSpeedIsAvailable.html.twig' %}
+            {% include '@tpg_sq/angular/whenHighSpeedIsNotAvailable.html.twig' %}
+            {% include '@tpg_sq/angular/whenNbnIsAvailable.html.twig' %}
+            {% include '@tpg_sq/angular/whenNbnIsNotServiceable.html.twig' %}
+            {% include '@tpg_sq/angular/whenNbnIsNotAvailableButHwIsAvailable.html.twig' %}
+            {% include '@tpg_sq/angular/whenFttbIsAvailable.html.twig' %}
+            {% include '@tpg_sq/angular/whenNbnAndHwIsAvailable.html.twig' %}
+            {% include '@tpg_sq/angular/when5gIsAvailable.html.twig' %}
+            {% include '@tpg_sq/angular/whenHWIsAvailable.html.twig' %}
+            {% include '@tpg_sq/angular/whenNbnIsAvailableWithAltTechs.html.twig' %}
+            {% include '@tpg_sq/angular/whenNoNbnButAltTechsAvailable.html.twig' %}
+            {% include '@tpg_sq/angular/whenFttbIsAvailableWithAltTechs.html.twig' %}
+            {% include '@tpg_sq/angular/whenFtthIsAvailableWithAltTechs.html.twig' %}
+            {% include '@tpg_sq/angular/whenNoFttbButAltTechsAvailable.html.twig' %}
+            {% include '@tpg_sq/angular/whenNoFtthButAltTechsAvailable.html.twig' %}
+            {% include '@tpg_sq/angular/whenListOfAltTechsAvailable.html.twig' %}
+            {% include '@tpg_sq/angular/failedSq.html.twig' %}
+
+        </div>
+
+        <!-- SQ MODAL -->
+        <div class="modal sq-modal" id="sq-modal" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-body" id="dynamicSQ">
+                        <div class="sq-result">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                            <div class="sq-msg">
+                                {% include '@tpg_sq/angular/modals/modal-whenFttbRedirect.html.twig' %}
+                                {% include '@tpg_sq/angular/modals/modal-whenIncompleteInvalid.html.twig' %}
+                                {% include '@tpg_sq/angular/modals/modal-addressRefinementChecker.html.twig' %}
+                                {% include '@tpg_sq/angular/modals/modal-whenHighSpeedIsAvailable.html.twig' %}
+                                {% include '@tpg_sq/angular/modals/modal-whenHighSpeedIsNotAvailable.html.twig' %}
+                                {% include "@tpg_sq/angular/modals/modal-whenNbnIsAvailable.html.twig" %}
+                                {% include '@tpg_sq/angular/modals/modal-whenNbnIsNotAvailableButHwIsAvailable.html.twig' %}
+                                {% include '@tpg_sq/angular/modals/modal-whenFttbIsAvailable.html.twig' %}
+                                {% include '@tpg_sq/angular/modals/modal-whenNbnAndHwIsAvailable.html.twig' %}
+                                {% include '@tpg_sq/angular/modals/modal-when5gIsAvailable.html.twig' %}
+                                {% include '@tpg_sq/angular/modals/modal-whenHWIsAvailable.html.twig' %}
+                                {% include '@tpg_sq/angular/modals/modal-whenNbnIsAvailableWithAltTechs.html.twig' %}
+                                {% include '@tpg_sq/angular/modals/modal-whenFttbIsAvailableWithAltTechs.html.twig' %}
+                                {% include '@tpg_sq/angular/modals/modal-whenListOfAltTechsAvailable.html.twig' %}
+                                {% include '@tpg_sq/angular/modals/modal-whenNbnIsNotServiceable.html.twig' %}
+                                {% include '@tpg_sq/angular/modals/modal-failedSq.html.twig' %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

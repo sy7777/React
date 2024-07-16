@@ -1,0 +1,29 @@
+<div ng-if="modalView == 'modal-whenNbnAndHwIsAvailable'" class="multiTech">
+    <h4>Congratulations</h4>
+    <p>We can provide you with the following options:</p>
+    <div class="button-wrapper">
+        <div class="sq-action-group">
+            <div class="sq-action">
+                <p>NBN is available at your address</p>
+                <a class="btn clickable btn-primary enterInput" ng-href="/nbn">
+                    <p>Choose Your Plan</p>
+                </a>
+            </div>
+            <div class="sq-action">
+                <p>Or get <span class="highlight">1 month free</span> on our great value NBN alternative<span ng-if="sq.Services.fwa_5g == 1 && sq.Services.fwa_4g == 1">s</span></p>
+                <div ng-if="sq.Services.fwa_5g == 1">
+                    <a tabindex="0" class="btn clickable btn-secondary enterInput multiline" ng-href="/5g-home-broadband">
+                        <p>5G Home Broadband</p>
+                        <span class="subtext">NBN25 - NBN100 alternative</span>
+                    </a>
+                </div>
+                <div ng-if="sq.Services.fwa_4g == 1">
+                    <a tabindex="0" class="btn clickable btn-secondary enterInput multiline" ng-href="/home-wireless-broadband">
+                        <p>Home Wireless Broadband</p>
+                        <span class="subtext">NBN12 alternative</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

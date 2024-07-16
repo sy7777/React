@@ -1,0 +1,7 @@
+name: 'TPG SQ'
+type: module
+description: TPG SQ Drupal Module
+core: 8.x
+package: Custom
+dependencies:
+  - custom:tpg_env

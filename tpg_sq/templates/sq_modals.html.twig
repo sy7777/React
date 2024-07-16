@@ -1,0 +1,101 @@
+{# SQ Modals #}
+
+<div class="modal sq-modal" id="sqModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <div id="sq-processing" class="sq-processing">
+                    <div class="text-center">
+                        <message class="lead">We're checking the products available at your address.</message>
+                    </div>
+                    <ul class="spinner">
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                    </ul>
+                </div>
+
+                <div class="sq-result">
+                    {% if show_address %}
+                        <p class="address-result"></p>
+                    {% endif %}
+                    <div class="sq-msg"></div>
+                    <div class="nbn-disconnection">
+                        <p>Note: Expected disconnection date of old network is based on information provided by NBN&trade; and is subject to change.</p>
+                    </div>
+                    <div class="hw-contact" style="display: none; top: 8px; font-size: 14px; position:relative; clear: both">
+                        Or <a class="clickable sq-action enterInput" style="font-size: 14px; display: inline; font-weight: bold" data-res="contact">Let us contact you</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal sq-modal" id="chooseNbN5gModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                <div class="sq-result" style="">
+                    <div class="sq-msg">
+                        <h4>Congratulations!</h4>
+                        <p>We can provide you with the following options:
+                        <p>
+                        <div class="button-wrapper">
+                            <div class="sq-action sq-action-group" data-res="nbn-available">
+                                <div>
+                                    <p>
+                                        <span class="nbn-preorder-available">Pre-order NBN now and we will connect your home as soon as possible </span>
+                                        <span class="nbn-ready-available">NBN is available at your address</span>
+                                    </p>
+                                    <a href="/nbn" tabindex="0" class="btn clickable btn-primary nbn-available enterInput">
+                                        <p>Choose Your Plan</p>
+                                    </a>
+                                    <div class="nbn-preorder-available">
+                                        Your home's estimated NBN&trade; connection date is <span class="nbn-preorder-date"></span> (subject to change). We will connect you when NBN arrives.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="sq-action sq-action-group" data-res="hw-available-options">
+                                <div>
+                                    <p><span class="nbn-available">Or try our great value NBN alternative<span class="fwa_5g-available">s</span> </span><br/><span class="highlight"><b>FREE</b> for a month</span></p>
+                                    <a tabindex="0" class="btn clickable btn-secondary fwa_5g-available enterInput" href="/5g-home-broadband">
+                                        <p>
+                                            <span class="fwa_5g_preorder-available">Preorder </span>5G Home Broadband
+                                        </p>
+                                    </a>
+                                    <div class="fwa_5g_preorder-available">
+                                        Your home's estimated 5G Home Broadband connection date is <span class="fw5g-preorder-date"></span> (subject to change). We will connect you when 5G arrives.
+                                    </div>
+                                    <a tabindex="0" class="btn clickable btn-secondary fwa_4g-available enterInput" href="/home-wireless-broadband">
+                                        <p>
+                                            Home Wireless Broadband
+                                        </p>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="nbn-disconnection" style="display: none;">
+                        <p>Note: Expected disconnection date of old network is based on information provided by NBN™ and is subject to change.</p>
+                    </div>
+                    <div class="hw-contact">
+                        Or <a class="clickable sq-action enterInput" data-res="contact " href="/nbn#contact">Let us contact you</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal sq-modal" id="addressFormModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+            </div>
+        </div>
+    </div>
+</div>

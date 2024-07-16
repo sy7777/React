@@ -1,0 +1,22 @@
+<div ng-if="view === 'whenNoFtthButAltTechsAvailable'" ng-init="getAltTechs('ftth')">
+    <div class="technology-container">
+        <h2 class="sq-result-title">
+            {* productInfo.ftth.name *} is not available at your address
+        </h2>
+        <h2 class="sq-result-title" ng-if="altTechs.length > 0">
+            The good news is
+            <span ng-repeat="(key, altTech) in altTechs">
+            <a class="productLinks" ng-href="{* productInfo[altTech].url *}">{* productInfo[altTech].name *}</a><span ng-if="altTechs.length -1 > key && key !== altTechs.length - 2">,</span>
+            <span ng-if="key === altTechs.length - 2">and</span>
+        </span>
+            <span ng-bind="altTechs.length === 1 ? 'is' : 'are'"></span> available in your area
+        </h2>
+    </div>
+    <div class="text-center disclaimer5G" ng-if="is5GPreorder()">
+        *Your home's estimated 5G Home Broadband connection date is {* sq.WIRELESS5G.readyForService *} (Your 5G Home Broadband estimated connection date is subject to change). We will connect you when 5G arrives.
+    </div>
+    <div class="text-center">
+        <span class="sqAddress">{* sq.formed_fulladdress *}</span>
+        <a href="#" class="pl-10" ng-click="resetSq()">Change address</a>
+    </div>
+</div>

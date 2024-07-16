@@ -1,0 +1,23 @@
+tpg_sq.sq:
+    path: '/api/sq'
+    defaults:
+        _controller: '\Drupal\tpg_sq\Controller\SQController::qas'
+        _title: 'sq'
+    requirements:
+        _permission: 'access content'
+
+tpg_sq.address_checker:
+    path: '/api/address_checker'
+    defaults:
+        _controller: '\Drupal\tpg_sq\Controller\SQController::address_checker'
+        _title: 'SQ address checker'
+    requirements:
+        _permission: 'access content'
+
+tpg_sq.ajax_modal_content:
+    path: '/api/sq_modal_content'
+    defaults:
+        _controller: '\Drupal\tpg_sq\Controller\SQController::ajax_modal_content'
+        _title: 'Ajax SQ Modal Content'
+    requirements:
+        _permission: 'access content'

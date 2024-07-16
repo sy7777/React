@@ -1,0 +1,9 @@
+<div ng-if="view === 'whenNbnAndHwIsAvailable'">
+    <h2 class="title-big-pricing">
+        <span ng-if="sq.Services.fwa_5g == 1"><a ng-href="/5g-home-broadband">5G HOME BROADBAND</a><span ng-if="sq.Services.fwa_5g == 1 && sq.Services.fwa_4g == 1">,</span></span>
+        <span ng-if="sq.Services.fwa_4g"><a ng-href="/home-wireless-broadband">HOME WIRELESS BROADBAND</a></span>
+        AND <a ng-href="/nbn">NBN</a> are available at your address
+    </h2>
+    <span class="sqAddress">{* sq.formed_fulladdress *}</span>
+    <a href="#" class="pl-10" ng-click="resetSq()">Change address</a>
+</div>

@@ -1,0 +1,806 @@
+<div ng-if="modalView == 'modal-addressRefinementChecker'" ng-init="bindAddressRefinementForm(); populateAddressForm(sq)">
+    <div id="addressFormModal" tabindex="-1" role="dialog">
+        <p class="form-logo">&nbsp;</p>
+        <div class="h3">Check Availability at Your Home</div>
+        <p>Please complete all relevant fields. *Indicates required fields</p>
+        <form class="form-horizontal sq-form" name="addressEntry" id="addressEntry" method="post">
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label for="state" class="col-sm-4 control-label">* State</label>
+                    <div class="col-sm-8">
+                        <select name="state" id="state" class="form-control input-sm">
+                            <option value="">Select</option>
+                            <option value="ACT">Australian Capital Territory</option>
+                            <option value="NSW">New South Wales</option>
+                            <option value="NT">Northern Territory</option>
+                            <option value="QLD">Queensland</option>
+                            <option value="SA">South Australia</option>
+                            <option value="TAS">Tasmania</option>
+                            <option value="VIC">Victoria</option>
+                            <option value="WA">Western Australia</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="suburb" class="col-sm-4 control-label">* Suburb</label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control input-sm" disabled id="suburb" name="suburb">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="postcode" class="col-sm-4 control-label">* Post Code</label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control input-sm" disabled id="postcode" name="postcode">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="street" class="col-sm-4 control-label">* Street Name</label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control input-sm" disabled id="street" name="street">
+                    </div>
+                </div>
+            </div>
+            <!-- middle -->
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label for="streetType" class="col-sm-6 control-label">Street Type</label>
+                    <div class="col-sm-6">
+                        <select name="streetType" id="streetType" class="form-control input-sm" disabled>
+                            <option value="">Select</option>
+                            <option value="AV">Avenue</option>
+                            <option value="DR">Drive</option>
+                            <option value="RD">Road</option>
+                            <option value="ST">Street</option>
+                            <option disabled="disabled" value="---------">---------</option>
+                            <option value="ACCS">Access</option>
+                            <option value="ACRE">Acre</option>
+                            <option value="ALLY">Alley</option>
+                            <option value="ALWY">Alleyway</option>
+                            <option value="AMBL">Amble</option>
+                            <option value="ANCG">Anchorage</option>
+                            <option value="APP">Approach</option>
+                            <option value="ARC">Arcade</option>
+                            <option value="ARTL">Arterial</option>
+                            <option value="ARTY">Artery</option>
+                            <option value="BA">Banan</option>
+                            <option value="BANK">Bank</option>
+                            <option value="BASN">Basin</option>
+                            <option value="BAY">Bay</option>
+                            <option value="BCH">Beach</option>
+                            <option value="BDGE">Bridge</option>
+                            <option value="BDWY">Broadway</option>
+                            <option value="BEND">Bend</option>
+                            <option value="BNDY">Boundary</option>
+                            <option value="BOWL">Bowl</option>
+                            <option value="BR">Brace</option>
+                            <option value="BRAE">Brae</option>
+                            <option value="BRAN">Branch</option>
+                            <option value="BRET">Brett</option>
+                            <option value="BRK">Break</option>
+                            <option value="BROW">Brow</option>
+                            <option value="BSWY">Busway</option>
+                            <option value="BULL">Bull</option>
+                            <option value="BVD">Boulevard</option>
+                            <option value="BVDE">Boulevarde</option>
+                            <option value="BWLK">Boardwalk</option>
+                            <option value="BYPA">Bypass</option>
+                            <option value="BYWY">Byway</option>
+                            <option value="CCT">Circuit</option>
+                            <option value="CH">Chase</option>
+                            <option value="CIR">Circle</option>
+                            <option value="CK">Creek</option>
+                            <option value="CL">Close</option>
+                            <option value="CLDE">Colonnade</option>
+                            <option value="CLM">Claim</option>
+                            <option value="CLR">Cluster</option>
+                            <option value="CLT">Circlet</option>
+                            <option value="CMMN">Common</option>
+                            <option value="CNR">Corner</option>
+                            <option value="CNTN">Connection</option>
+                            <option value="CNWY">Centreway</option>
+                            <option value="CON">Concourse</option>
+                            <option value="CONR">Connector</option>
+                            <option value="COVE">Cove</option>
+                            <option value="COWY">Crossway</option>
+                            <option value="CPS">Copse</option>
+                            <option value="CR">Crescent</option>
+                            <option value="CRCS">Circus</option>
+                            <option value="CRD">Crossroad</option>
+                            <option value="CRF">Crief</option>
+                            <option value="CRSE">Course</option>
+                            <option value="CRSG">Crossing</option>
+                            <option value="CRSS">Cross</option>
+                            <option value="CRST">Crest</option>
+                            <option value="CSAC">Cul-De-Sac</option>
+                            <option value="CSO">Corso</option>
+                            <option value="CSWY">Causeway</option>
+                            <option value="CT">Court</option>
+                            <option value="CTR">Centre</option>
+                            <option value="CTYD">Courtyard</option>
+                            <option value="CUT">Cut</option>
+                            <option value="CUTT">Cutting</option>
+                            <option value="CUWY">Cruiseway</option>
+                            <option value="DALE">Dale</option>
+                            <option value="DE">Deviation</option>
+                            <option value="DELL">Dell</option>
+                            <option value="DENE">Dene</option>
+                            <option value="DIP">Dip</option>
+                            <option value="DIV">Divide</option>
+                            <option value="DOCK">Dock</option>
+                            <option value="DOM">Domain</option>
+                            <option value="DOWN">Down</option>
+                            <option value="DSTR">Distributor</option>
+                            <option value="DVWY">Driveway</option>
+                            <option value="DWNS">Downs</option>
+                            <option value="EDGE">Edge</option>
+                            <option value="ELB">Elbow</option>
+                            <option value="END">End</option>
+                            <option value="ENT">Entrance</option>
+                            <option value="ESMT">Easement</option>
+                            <option value="ESP">Esplanade</option>
+                            <option value="EST">Estate</option>
+                            <option value="EXP">Expressway</option>
+                            <option value="EXTN">Extension</option>
+                            <option value="FARE">Fare</option>
+                            <option value="FAWY">Fairway</option>
+                            <option value="FERN">Fern</option>
+                            <option value="FITR">Firetrail</option>
+                            <option value="FLAT">Flat</option>
+                            <option value="FLNE">Fireline</option>
+                            <option value="FOLW">Follow</option>
+                            <option value="FORD">Ford</option>
+                            <option value="FORK">Fork</option>
+                            <option value="FORM">Formation</option>
+                            <option value="FRMS">Farms</option>
+                            <option value="FRNT">Front</option>
+                            <option value="FRTG">Frontage</option>
+                            <option value="FSHR">Foreshore</option>
+                            <option value="FTRK">Firetrack</option>
+                            <option value="FTWY">Footway</option>
+                            <option value="FWY">Freeway</option>
+                            <option value="GAP">Gap</option>
+                            <option value="GDN">Garden</option>
+                            <option value="GDNS">Gardens</option>
+                            <option value="GLDE">Glade</option>
+                            <option value="GLEN">Glen</option>
+                            <option value="GLY">Gully</option>
+                            <option value="GR">Grove</option>
+                            <option value="GRA">Grange</option>
+                            <option value="GRN">Green</option>
+                            <option value="GTE">Gate</option>
+                            <option value="GTES">Gates</option>
+                            <option value="GWY">Gateway</option>
+                            <option value="HILL">Hill</option>
+                            <option value="HIRD">Highroad</option>
+                            <option value="HLLW">Hollow</option>
+                            <option value="HTH">Heath</option>
+                            <option value="HTS">Heights</option>
+                            <option value="HUB">Hub</option>
+                            <option value="HVN">Haven</option>
+                            <option value="HWY">Highway</option>
+                            <option value="ID">Island</option>
+                            <option value="INLT">Inlet</option>
+                            <option value="INTG">Interchange</option>
+                            <option value="INTN">Intersection</option>
+                            <option value="JNC">Junction</option>
+                            <option value="KEY">Key</option>
+                            <option value="KEYS">Keys</option>
+                            <option value="KNOB">Knob</option>
+                            <option value="KNOL">Knoll</option>
+                            <option value="LAGN">Lagoon</option>
+                            <option value="LANE">Lane</option>
+                            <option value="LDG">Landing</option>
+                            <option value="LEES">Lees</option>
+                            <option value="LGH">Leigh</option>
+                            <option value="LINE">Line</option>
+                            <option value="LINK">Link</option>
+                            <option value="LKT">Lookout</option>
+                            <option value="LNWY">Laneway</option>
+                            <option value="LOOP">Loop</option>
+                            <option value="LT">Little</option>
+                            <option value="LWR">Lower</option>
+                            <option value="LYNN">Lynne</option>
+                            <option value="MALL">Mall</option>
+                            <option value="MANR">Manor</option>
+                            <option value="MART">Mart</option>
+                            <option value="MEAD">Mead</option>
+                            <option value="MEW">Mew</option>
+                            <option value="MEWS">Mews</option>
+                            <option value="MNDR">Meander</option>
+                            <option value="MTWY">Motorway</option>
+                            <option value="NOOK">Nook</option>
+                            <option value="NTH">North</option>
+                            <option value="OAKS">Oaks</option>
+                            <option value="OTLK">Outlook</option>
+                            <option value="OTLT">Outlet</option>
+                            <option value="OVAL">Oval</option>
+                            <option value="OVRB">Overbridge</option>
+                            <option value="PARK">Park</option>
+                            <option value="PART">Part</option>
+                            <option value="PASS">Pass</option>
+                            <option value="PATH">Path</option>
+                            <option value="PDE">Parade</option>
+                            <option value="PIAZ">Piazza</option>
+                            <option value="PKLD">Parklands</option>
+                            <option value="PKT">Pocket</option>
+                            <option value="PL">Place</option>
+                            <option value="PLZA">Plaza</option>
+                            <option value="PNT">Point</option>
+                            <option value="PORT">Port</option>
+                            <option value="PRDS">Paradise</option>
+                            <option value="PREC">Precinct</option>
+                            <option value="PROM">Promenade</option>
+                            <option value="PRST">Pursuit</option>
+                            <option value="PSGE">Passage</option>
+                            <option value="PSLA">Peninsula</option>
+                            <option value="PWAY">Pathway</option>
+                            <option value="PWY">Parkway</option>
+                            <option value="QDGL">Quadrangle</option>
+                            <option value="QDRT">Quadrant</option>
+                            <option value="QUAD">Quad</option>
+                            <option value="QY">Quay</option>
+                            <option value="QYS">Quays</option>
+                            <option value="RAMP">Ramp</option>
+                            <option value="RCH">Reach</option>
+                            <option value="RDGE">Ridge</option>
+                            <option value="RDWY">Roadway</option>
+                            <option value="REEF">Reef</option>
+                            <option value="RES">Reserve</option>
+                            <option value="REST">Rest</option>
+                            <option value="RGWY">Ridgeway</option>
+                            <option value="RIDE">Ride</option>
+                            <option value="RING">Ring</option>
+                            <option value="RISE">Rise</option>
+                            <option value="RMBL">Ramble</option>
+                            <option value="RND">Round</option>
+                            <option value="RNDE">Ronde</option>
+                            <option value="RNGE">Range</option>
+                            <option value="ROFW">Right Of Way</option>
+                            <option value="ROW">Row</option>
+                            <option value="ROWE">Rowe</option>
+                            <option value="ROWY">Right Of Way</option>
+                            <option value="RSBL">Rosebowl</option>
+                            <option value="RSNG">Rising</option>
+                            <option value="RTE">Route</option>
+                            <option value="RTN">Return</option>
+                            <option value="RTT">Retreat</option>
+                            <option value="RTY">Rotary</option>
+                            <option value="RUA">Rua</option>
+                            <option value="RUE">Rue</option>
+                            <option value="RUN">Run</option>
+                            <option value="RVR">River</option>
+                            <option value="RVRA">Riviera</option>
+                            <option value="RVWY">Riverway</option>
+                            <option value="SBWY">Subway</option>
+                            <option value="SDNG">Siding</option>
+                            <option value="SHUN">Shunt</option>
+                            <option value="SHWY">State Highway</option>
+                            <option value="SKLN">Skyline</option>
+                            <option value="SLPE">Slope</option>
+                            <option value="SPUR">Spur</option>
+                            <option value="SQ">Square</option>
+                            <option value="STAI">Strait</option>
+                            <option value="STPS">Steps</option>
+                            <option value="STRA">Strand</option>
+                            <option value="STRP">Strip</option>
+                            <option value="STRT">Straight</option>
+                            <option value="SVWY">Serviceway</option>
+                            <option value="TARN">Tarn</option>
+                            <option value="TCE">Terrace</option>
+                            <option value="THFR">Thoroughfare</option>
+                            <option value="THWY">Thoroughway</option>
+                            <option value="TKWY">Trunkway</option>
+                            <option value="TLWY">Tollway</option>
+                            <option value="TOP">Top</option>
+                            <option value="TOR">Tor</option>
+                            <option value="TRI">Triangle</option>
+                            <option value="TRK">Track</option>
+                            <option value="TRL">Trail</option>
+                            <option value="TRS">Trees</option>
+                            <option value="TURN">Turn</option>
+                            <option value="TWRS">Towers</option>
+                            <option value="UPAS">Underpass</option>
+                            <option value="UPR">Upper</option>
+                            <option value="VALE">Vale</option>
+                            <option value="VIAD">Viaduct</option>
+                            <option value="VIEW">View</option>
+                            <option value="VLLA">Villa</option>
+                            <option value="VLLS">Villas</option>
+                            <option value="VLLY">Valley</option>
+                            <option value="VSTA">Vista</option>
+                            <option value="VWS">Views</option>
+                            <option value="WADE">Wade</option>
+                            <option value="WALK">Walk</option>
+                            <option value="WAY">Way</option>
+                            <option value="WAYS">Ways</option>
+                            <option value="WD">Wood</option>
+                            <option value="WDS">Woods</option>
+                            <option value="WHRF">Wharf</option>
+                            <option value="WKWY">Walkway</option>
+                            <option value="WTRS">Waters</option>
+                            <option value="WYND">Wynd</option>
+                            <option value="YARD">Yard</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="streetSuffix" class="col-sm-6 control-label">Street Suffix</label>
+                    <div class="col-sm-6">
+                        <select name="streetSuffix" id="streetSuffix" class="form-control input-sm" disabled>
+                            <option value="">Select</option>
+                            <option value="N">North</option>
+                            <option value="E">East</option>
+                            <option value="W">West</option>
+                            <option value="S">South</option>
+                            <option value="CN">Central</option>
+                            <option value="SE">South East</option>
+                            <option value="DE">Deviation</option>
+                            <option value="SW">South West</option>
+                            <option value="UP">Upper</option>
+                            <option value="EX">Extension</option>
+                            <option value="LR">Lower</option>
+                            <option value="IN">Inner</option>
+                            <option value="ML">Mall</option>
+                            <option value="OF">Off</option>
+                            <option value="ON">On</option>
+                            <option value="NE">North East</option>
+                            <option value="OP">Overpass</option>
+                            <option value="NW">North West</option>
+                            <option value="OT">Outer</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="streetNumber" class="col-sm-6 control-label">Street Number</label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control input-sm" disabled id="streetNumber" name="streetNumber">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="unitNumber" class="col-sm-6 control-label">Unit Number</label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control input-sm" disabled id="unitNumber" name="unitNumber">
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading" role="tab" id="headingOne">
+                    <div class="panel-title h4">
+                        <a class="collapsed" role="button" data-toggle="collapse" href="#optionalInfo" aria-expanded="false" aria-controls="optionalInfo">
+                            Optional Information
+                        </a>
+                        <span class="glyphicon glyphicon-chevron-right"></span>
+                    </div>
+                </div>
+                <div id="optionalInfo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+                    <div class="panel-body">
+                        <div class="form-group">
+                            <label for="unitType" class="col-sm-3 control-label">Unit Type</label>
+                            <div class="col-sm-3">
+                                <select name="unitType" class="form-control input-sm" id="unitType" disabled>
+                                    <option value="">Select</option>
+                                    <option value="ANT">Antenna </option>
+                                    <option value="APT">Apartment </option>
+                                    <option value="ATM">AutomatedTellerMachine </option>
+                                    <option value="BBQ">Barbecue </option>
+                                    <option value="BLDG">Building </option>
+                                    <option value="BNGW">Bungalow </option>
+                                    <option value="BTSD">Boatshed </option>
+                                    <option value="CAGE">Cage </option>
+                                    <option value="CARP">Carpark </option>
+                                    <option value="CARS">Carspace </option>
+                                    <option value="CLUB">Club </option>
+                                    <option value="COOL">Coolroom </option>
+                                    <option value="CTGE">Cottage </option>
+                                    <option value="DUPL">Duplex </option>
+                                    <option value="FCTY">Factory </option>
+                                    <option value="FLAT">Flat </option>
+                                    <option value="GRGE">Garage </option>
+                                    <option value="HALL">Hall </option>
+                                    <option value="HSE">House </option>
+                                    <option value="KSK">Kiosk </option>
+                                    <option value="LBBY">Lobby </option>
+                                    <option value="LOFT">Loft </option>
+                                    <option value="LOT">Lot </option>
+                                    <option value="LSE">Lease </option>
+                                    <option value="MBTH">MarineBerth </option>
+                                    <option value="MSNT">Maisonette </option>
+                                    <option value="OFFC">Office </option>
+                                    <option value="RESV">Reserve </option>
+                                    <option value="ROOM">Room </option>
+                                    <option value="SE">Suite </option>
+                                    <option value="SHED">Shed </option>
+                                    <option value="SHOP">Shop </option>
+                                    <option value="SHRM">Showroom </option>
+                                    <option value="SIGN">Sign </option>
+                                    <option value="SITE">Site </option>
+                                    <option value="STLL">Stall </option>
+                                    <option value="STOR">Store </option>
+                                    <option value="STR">Strataunit </option>
+                                    <option value="STU">Studio </option>
+                                    <option value="SUBS">Substation </option>
+                                    <option value="TNCY">Tenancy </option>
+                                    <option value="TNHS">Townhouse </option>
+                                    <option value="TWR">Tower </option>
+                                    <option value="UNIT">Unit </option>
+                                    <option value="VLLA">Villa </option>
+                                    <option value="VLT">Vault </option>
+                                    <option value="WARD">Ward </option>
+                                    <option value="WHSE">Warehouse </option>
+                                    <option value="WKSH">Workshop </option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="lotNumber" class="col-sm-3 control-label">Lot Number</label>
+                            <div class="col-sm-3">
+                                <input type="text" class="form-control input-sm" disabled id="lotNumber" name="lotNumber">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="levelType" class="col-sm-3 control-label">Level Type</label>
+                            <div class="col-sm-3">
+                                <select name="levelTypeCode" id="levelType" class="form-control input-sm" disabled>
+                                    <option value="">Select</option>
+                                    <option value="B">Basement </option>
+                                    <option value="FL">Floor </option>
+                                    <option value="G">Ground </option>
+                                    <option value="L">Level </option>
+                                    <option value="LB">Lobby </option>
+                                    <option value="LG">Lower Ground Floor </option>
+                                    <option value="M">Mezzanine </option>
+                                    <option value="P">Parking </option>
+                                    <option value="PTHS">Penthouse </option>
+                                    <option value="PLF">Platform </option>
+                                    <option value="PDM">Podium </option>
+                                    <option value="RT">Rooftop </option>
+                                    <option value="SB">Sub-Basement </option>
+                                    <option value="UG">Upper Ground Floor </option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="levelNumber" class="col-sm-3 control-label">Level Number</label>
+                            <div class="col-sm-3">
+                                <input type="text" class="form-control input-sm" disabled id="levelNumber" name="levelNumber">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="complexSiteName" class="col-sm-3 control-label">Complex/Site Name</label>
+                            <div class="col-sm-3">
+                                <input type="text" class="form-control input-sm" disabled id="complexSiteName" name="complexSiteName">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="complexStreetType" class="col-sm-3 control-label">Street Type in a complex</label>
+                            <div class="col-sm-3">
+                                <select name="complexStreetType" id="complexStreetType" class="form-control input-sm" disabled>
+                                    <option value="">Select</option>
+                                    <option value="AV">Avenue</option>
+                                    <option value="DR">Drive</option>
+                                    <option value="RD">Road</option>
+                                    <option value="ST">Street</option>
+                                    <option disabled="disabled" value="---------">---------</option>
+                                    <option value="ACCS">Access</option>
+                                    <option value="ACRE">Acre</option>
+                                    <option value="ALLY">Alley</option>
+                                    <option value="ALWY">Alleyway</option>
+                                    <option value="AMBL">Amble</option>
+                                    <option value="ANCG">Anchorage</option>
+                                    <option value="APP">Approach</option>
+                                    <option value="ARC">Arcade</option>
+                                    <option value="ARTL">Arterial</option>
+                                    <option value="ARTY">Artery</option>
+                                    <option value="BA">Banan</option>
+                                    <option value="BANK">Bank</option>
+                                    <option value="BASN">Basin</option>
+                                    <option value="BAY">Bay</option>
+                                    <option value="BCH">Beach</option>
+                                    <option value="BDGE">Bridge</option>
+                                    <option value="BDWY">Broadway</option>
+                                    <option value="BEND">Bend</option>
+                                    <option value="BNDY">Boundary</option>
+                                    <option value="BOWL">Bowl</option>
+                                    <option value="BR">Brace</option>
+                                    <option value="BRAE">Brae</option>
+                                    <option value="BRAN">Branch</option>
+                                    <option value="BRET">Brett</option>
+                                    <option value="BRK">Break</option>
+                                    <option value="BROW">Brow</option>
+                                    <option value="BSWY">Busway</option>
+                                    <option value="BULL">Bull</option>
+                                    <option value="BVD">Boulevard</option>
+                                    <option value="BVDE">Boulevarde</option>
+                                    <option value="BWLK">Boardwalk</option>
+                                    <option value="BYPA">Bypass</option>
+                                    <option value="BYWY">Byway</option>
+                                    <option value="CCT">Circuit</option>
+                                    <option value="CH">Chase</option>
+                                    <option value="CIR">Circle</option>
+                                    <option value="CK">Creek</option>
+                                    <option value="CL">Close</option>
+                                    <option value="CLDE">Colonnade</option>
+                                    <option value="CLM">Claim</option>
+                                    <option value="CLR">Cluster</option>
+                                    <option value="CLT">Circlet</option>
+                                    <option value="CMMN">Common</option>
+                                    <option value="CNR">Corner</option>
+                                    <option value="CNTN">Connection</option>
+                                    <option value="CNWY">Centreway</option>
+                                    <option value="CON">Concourse</option>
+                                    <option value="CONR">Connector</option>
+                                    <option value="COVE">Cove</option>
+                                    <option value="COWY">Crossway</option>
+                                    <option value="CPS">Copse</option>
+                                    <option value="CR">Crescent</option>
+                                    <option value="CRCS">Circus</option>
+                                    <option value="CRD">Crossroad</option>
+                                    <option value="CRF">Crief</option>
+                                    <option value="CRSE">Course</option>
+                                    <option value="CRSG">Crossing</option>
+                                    <option value="CRSS">Cross</option>
+                                    <option value="CRST">Crest</option>
+                                    <option value="CSAC">Cul-De-Sac</option>
+                                    <option value="CSO">Corso</option>
+                                    <option value="CSWY">Causeway</option>
+                                    <option value="CT">Court</option>
+                                    <option value="CTR">Centre</option>
+                                    <option value="CTYD">Courtyard</option>
+                                    <option value="CUT">Cut</option>
+                                    <option value="CUTT">Cutting</option>
+                                    <option value="CUWY">Cruiseway</option>
+                                    <option value="DALE">Dale</option>
+                                    <option value="DE">Deviation</option>
+                                    <option value="DELL">Dell</option>
+                                    <option value="DENE">Dene</option>
+                                    <option value="DIP">Dip</option>
+                                    <option value="DIV">Divide</option>
+                                    <option value="DOCK">Dock</option>
+                                    <option value="DOM">Domain</option>
+                                    <option value="DOWN">Down</option>
+                                    <option value="DSTR">Distributor</option>
+                                    <option value="DVWY">Driveway</option>
+                                    <option value="DWNS">Downs</option>
+                                    <option value="EDGE">Edge</option>
+                                    <option value="ELB">Elbow</option>
+                                    <option value="END">End</option>
+                                    <option value="ENT">Entrance</option>
+                                    <option value="ESMT">Easement</option>
+                                    <option value="ESP">Esplanade</option>
+                                    <option value="EST">Estate</option>
+                                    <option value="EXP">Expressway</option>
+                                    <option value="EXTN">Extension</option>
+                                    <option value="FARE">Fare</option>
+                                    <option value="FAWY">Fairway</option>
+                                    <option value="FERN">Fern</option>
+                                    <option value="FITR">Firetrail</option>
+                                    <option value="FLAT">Flat</option>
+                                    <option value="FLNE">Fireline</option>
+                                    <option value="FOLW">Follow</option>
+                                    <option value="FORD">Ford</option>
+                                    <option value="FORK">Fork</option>
+                                    <option value="FORM">Formation</option>
+                                    <option value="FRMS">Farms</option>
+                                    <option value="FRNT">Front</option>
+                                    <option value="FRTG">Frontage</option>
+                                    <option value="FSHR">Foreshore</option>
+                                    <option value="FTRK">Firetrack</option>
+                                    <option value="FTWY">Footway</option>
+                                    <option value="FWY">Freeway</option>
+                                    <option value="GAP">Gap</option>
+                                    <option value="GDN">Garden</option>
+                                    <option value="GDNS">Gardens</option>
+                                    <option value="GLDE">Glade</option>
+                                    <option value="GLEN">Glen</option>
+                                    <option value="GLY">Gully</option>
+                                    <option value="GR">Grove</option>
+                                    <option value="GRA">Grange</option>
+                                    <option value="GRN">Green</option>
+                                    <option value="GTE">Gate</option>
+                                    <option value="GTES">Gates</option>
+                                    <option value="GWY">Gateway</option>
+                                    <option value="HILL">Hill</option>
+                                    <option value="HIRD">Highroad</option>
+                                    <option value="HLLW">Hollow</option>
+                                    <option value="HTH">Heath</option>
+                                    <option value="HTS">Heights</option>
+                                    <option value="HUB">Hub</option>
+                                    <option value="HVN">Haven</option>
+                                    <option value="HWY">Highway</option>
+                                    <option value="ID">Island</option>
+                                    <option value="INLT">Inlet</option>
+                                    <option value="INTG">Interchange</option>
+                                    <option value="INTN">Intersection</option>
+                                    <option value="JNC">Junction</option>
+                                    <option value="KEY">Key</option>
+                                    <option value="KEYS">Keys</option>
+                                    <option value="KNOB">Knob</option>
+                                    <option value="KNOL">Knoll</option>
+                                    <option value="LAGN">Lagoon</option>
+                                    <option value="LANE">Lane</option>
+                                    <option value="LDG">Landing</option>
+                                    <option value="LEES">Lees</option>
+                                    <option value="LGH">Leigh</option>
+                                    <option value="LINE">Line</option>
+                                    <option value="LINK">Link</option>
+                                    <option value="LKT">Lookout</option>
+                                    <option value="LNWY">Laneway</option>
+                                    <option value="LOOP">Loop</option>
+                                    <option value="LT">Little</option>
+                                    <option value="LWR">Lower</option>
+                                    <option value="LYNN">Lynne</option>
+                                    <option value="MALL">Mall</option>
+                                    <option value="MANR">Manor</option>
+                                    <option value="MART">Mart</option>
+                                    <option value="MEAD">Mead</option>
+                                    <option value="MEW">Mew</option>
+                                    <option value="MEWS">Mews</option>
+                                    <option value="MNDR">Meander</option>
+                                    <option value="MTWY">Motorway</option>
+                                    <option value="NOOK">Nook</option>
+                                    <option value="NTH">North</option>
+                                    <option value="OAKS">Oaks</option>
+                                    <option value="OTLK">Outlook</option>
+                                    <option value="OTLT">Outlet</option>
+                                    <option value="OVAL">Oval</option>
+                                    <option value="OVRB">Overbridge</option>
+                                    <option value="PARK">Park</option>
+                                    <option value="PART">Part</option>
+                                    <option value="PASS">Pass</option>
+                                    <option value="PATH">Path</option>
+                                    <option value="PDE">Parade</option>
+                                    <option value="PIAZ">Piazza</option>
+                                    <option value="PKLD">Parklands</option>
+                                    <option value="PKT">Pocket</option>
+                                    <option value="PL">Place</option>
+                                    <option value="PLZA">Plaza</option>
+                                    <option value="PNT">Point</option>
+                                    <option value="PORT">Port</option>
+                                    <option value="PRDS">Paradise</option>
+                                    <option value="PREC">Precinct</option>
+                                    <option value="PROM">Promenade</option>
+                                    <option value="PRST">Pursuit</option>
+                                    <option value="PSGE">Passage</option>
+                                    <option value="PSLA">Peninsula</option>
+                                    <option value="PWAY">Pathway</option>
+                                    <option value="PWY">Parkway</option>
+                                    <option value="QDGL">Quadrangle</option>
+                                    <option value="QDRT">Quadrant</option>
+                                    <option value="QUAD">Quad</option>
+                                    <option value="QY">Quay</option>
+                                    <option value="QYS">Quays</option>
+                                    <option value="RAMP">Ramp</option>
+                                    <option value="RCH">Reach</option>
+                                    <option value="RDGE">Ridge</option>
+                                    <option value="RDWY">Roadway</option>
+                                    <option value="REEF">Reef</option>
+                                    <option value="RES">Reserve</option>
+                                    <option value="REST">Rest</option>
+                                    <option value="RGWY">Ridgeway</option>
+                                    <option value="RIDE">Ride</option>
+                                    <option value="RING">Ring</option>
+                                    <option value="RISE">Rise</option>
+                                    <option value="RMBL">Ramble</option>
+                                    <option value="RND">Round</option>
+                                    <option value="RNDE">Ronde</option>
+                                    <option value="RNGE">Range</option>
+                                    <option value="ROFW">Right Of Way</option>
+                                    <option value="ROW">Row</option>
+                                    <option value="ROWE">Rowe</option>
+                                    <option value="ROWY">Right Of Way</option>
+                                    <option value="RSBL">Rosebowl</option>
+                                    <option value="RSNG">Rising</option>
+                                    <option value="RTE">Route</option>
+                                    <option value="RTN">Return</option>
+                                    <option value="RTT">Retreat</option>
+                                    <option value="RTY">Rotary</option>
+                                    <option value="RUA">Rua</option>
+                                    <option value="RUE">Rue</option>
+                                    <option value="RUN">Run</option>
+                                    <option value="RVR">River</option>
+                                    <option value="RVRA">Riviera</option>
+                                    <option value="RVWY">Riverway</option>
+                                    <option value="SBWY">Subway</option>
+                                    <option value="SDNG">Siding</option>
+                                    <option value="SHUN">Shunt</option>
+                                    <option value="SHWY">State Highway</option>
+                                    <option value="SKLN">Skyline</option>
+                                    <option value="SLPE">Slope</option>
+                                    <option value="SPUR">Spur</option>
+                                    <option value="SQ">Square</option>
+                                    <option value="STAI">Strait</option>
+                                    <option value="STPS">Steps</option>
+                                    <option value="STRA">Strand</option>
+                                    <option value="STRP">Strip</option>
+                                    <option value="STRT">Straight</option>
+                                    <option value="SVWY">Serviceway</option>
+                                    <option value="TARN">Tarn</option>
+                                    <option value="TCE">Terrace</option>
+                                    <option value="THFR">Thoroughfare</option>
+                                    <option value="THWY">Thoroughway</option>
+                                    <option value="TKWY">Trunkway</option>
+                                    <option value="TLWY">Tollway</option>
+                                    <option value="TOP">Top</option>
+                                    <option value="TOR">Tor</option>
+                                    <option value="TRI">Triangle</option>
+                                    <option value="TRK">Track</option>
+                                    <option value="TRL">Trail</option>
+                                    <option value="TRS">Trees</option>
+                                    <option value="TURN">Turn</option>
+                                    <option value="TWRS">Towers</option>
+                                    <option value="UPAS">Underpass</option>
+                                    <option value="UPR">Upper</option>
+                                    <option value="VALE">Vale</option>
+                                    <option value="VIAD">Viaduct</option>
+                                    <option value="VIEW">View</option>
+                                    <option value="VLLA">Villa</option>
+                                    <option value="VLLS">Villas</option>
+                                    <option value="VLLY">Valley</option>
+                                    <option value="VSTA">Vista</option>
+                                    <option value="VWS">Views</option>
+                                    <option value="WADE">Wade</option>
+                                    <option value="WALK">Walk</option>
+                                    <option value="WAY">Way</option>
+                                    <option value="WAYS">Ways</option>
+                                    <option value="WD">Wood</option>
+                                    <option value="WDS">Woods</option>
+                                    <option value="WHRF">Wharf</option>
+                                    <option value="WKWY">Walkway</option>
+                                    <option value="WTRS">Waters</option>
+                                    <option value="WYND">Wynd</option>
+                                    <option value="YARD">Yard</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="complexBuildingName" class="col-sm-3 control-label">Building Name in a complex</label>
+                            <div class="col-sm-3">
+                                <input type="text" class="form-control input-sm" disabled id="complexBuildingName" name="complexBuildingName">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="complexStreetSuffix" class="col-sm-3 control-label">Street Suffix in a complex</label>
+                            <div class="col-sm-3">
+                                <select name="complexStreetSuffix" id="complexStreetSuffix" class="form-control input-sm" disabled>
+                                    <option value="">Select</option>
+                                    <option value="N">North</option>
+                                    <option value="E">East</option>
+                                    <option value="W">West</option>
+                                    <option value="S">South</option>
+                                    <option value="CN">Central</option>
+                                    <option value="SE">South East</option>
+                                    <option value="DE">Deviation</option>
+                                    <option value="SW">South West</option>
+                                    <option value="UP">Upper</option>
+                                    <option value="EX">Extension</option>
+                                    <option value="LR">Lower</option>
+                                    <option value="IN">Inner</option>
+                                    <option value="ML">Mall</option>
+                                    <option value="OF">Off</option>
+                                    <option value="ON">On</option>
+                                    <option value="NE">North East</option>
+                                    <option value="OP">Overpass</option>
+                                    <option value="NW">North West</option>
+                                    <option value="OT">Outer</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="complexStreetName" class="col-sm-3 control-label">Street Name in a complex</label>
+                            <div class="col-sm-3">
+                                <input type="text" class="form-control input-sm" disabled id="complexStreetName" name="complexStreetName">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="complexStreetNumber" class="col-sm-3 control-label">Street Number in a complex</label>
+                            <div class="col-sm-3">
+                                <input type="text" class="form-control input-sm" disabled id="complexStreetNumber" name="complexStreetNumber">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button id="checkAvailableSubmit" type="button" class="btn btn-yframe disabled" disabled>Check Availability</button>
+            </div>
+        </form>
+    </div>
+</div>

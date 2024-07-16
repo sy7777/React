@@ -1,0 +1,33 @@
+<div ng-if="modalView == 'modal-whenFttbIsAvailableWithAltTechs'" class="multiTech text-center" ng-init="getAltTechs('fttb')">
+    <h4>Great news</h4>
+
+    <div class="button-wrapper">
+        <div class="sq-action-group">
+            <div class="sq-action">
+                <p class="mb-0"><strong>Fibre to the Building (FTTB)</strong></p>
+                <p>is available at your address</p>
+                <a class="btn clickable btn-primary enterInput" ng-href="{* productInfo.fttb.url *}">
+                    <p>Select a plan</p>
+                </a>
+            </div>
+            <div class="sq-action" ng-if="altTechs.length > 0">
+                <p>You can also get connected with <span ng-if="altTechs.length > 1">these</span><span ng-if="altTechs.length == 1">this</span> great value product<span ng-if="altTechs.length > 1">s</span></p>
+                <div ng-repeat="(key, altTech) in altTechs">
+                    <a tabindex="0" class="btn clickable btn-secondary enterInput multiline" ng-href="{* productInfo[altTech].url *}">
+                        <p>
+                            {* productInfo[altTech].name *}
+                            <span class="subtext">{* productInfo[altTech].nbnAltText *}</span>
+                        </p>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="text-center disclaimer5G" ng-if="is5GPreorder()">
+        *Your home's estimated 5G Home Broadband connection date is {* sq.WIRELESS5G.readyForService *} (Your 5G Home Broadband estimated connection date is subject to change). We will connect you when 5G arrives.
+    </div>
+
+    <div class="hw-contact">
+        Or <a class="clickable sq-action enterInput" data-res="contact " href="/nbn#contact">Let us contact you</a>
+    </div>
+</div>

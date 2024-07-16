@@ -1,0 +1,25 @@
+<div ng-if="modalView == 'modal-whenListOfAltTechsAvailable'" class="multiTech altTechs text-center" ng-init="getAltTechs('none')">
+    <h4>Great news</h4>
+    <p>You can get connected with the following product<span ng-if="altTechs.length > 1">s</span>:</p>
+
+    <div class="button-wrapper">
+        <div class="sq-action-group">
+            <div class="sq-action">
+                <div ng-repeat="(key, altTech) in altTechs">
+                    <a tabindex="0" class="btn altTechButton clickable enterInput" ng-href="{* productInfo[altTech].url *}" ng-class="$index > 0 ? 'btn-secondary': 'btn-primary'">
+                        <p>{* productInfo[altTech].name *}</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="text-center disclaimer5G" ng-if="is5GPreorder()">
+        *Your home's estimated 5G Home Broadband connection date is {* sq.WIRELESS5G.readyForService *} (Your 5G Home Broadband estimated connection date is subject to change). We will connect you when 5G arrives.
+    </div>
+    <div class="text-center disclaimer5G" ng-if=" sq.NBN.res === 12">
+        *Pre-order {* productInfo.nbn.name *} now and we will connect your home as soon as possible
+    </div>
+    <div class="hw-contact">
+        Or <a class="clickable enterInput" data-res="contact " href="/nbn#contact">Let us contact you</a>
+    </div>
+</div>

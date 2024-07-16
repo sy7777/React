@@ -1,0 +1,26 @@
+uuid: 7f991d76-3083-413b-8f1e-ac625e2579fd
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+    - tpg_sq
+  theme:
+    - poc
+id: sqaddress
+theme: poc
+region: content
+weight: -21
+provider: null
+plugin: sq_block
+settings:
+  id: sq_block
+  label: 'SQ Address'
+  provider: tpg_sq
+  label_display: '0'
+visibility:
+  request_path:
+    id: request_path
+    pages: "<front>"
+    negate: false
+    context_mapping: {  }

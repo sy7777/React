@@ -1,0 +1,38 @@
+<div ng-if="modalView == 'modal-whenNbnIsAvailableWithAltTechs'" class="multiTech text-center" ng-init="getAltTechs('nbn')">
+    <h4>Congratulations</h4>
+    <p>We can provide you with the following options:</p>
+
+    <div class="button-wrapper">
+        <div class="sq-action-group">
+            <div class="sq-action">
+                <p ng-if=" sq.NBN.res !== 12">NBN <span ng-if="sq.NBN.technology === 'Wireless'">Fixed Wireless</span> is available at your address</p>
+                <p ng-if=" sq.NBN.res === 12">
+                    Pre-order {* productInfo.nbn.name *} now and we will connect your home as soon as possible
+                </p>
+                <a class="btn clickable btn-primary enterInput" ng-href="{* productInfo.nbn.url *}">
+                    <p>Choose Your Plan</p>
+                </a>
+                <p ng-if=" sq.NBN.res === 12">
+                    Your home's estimated {* productInfo.nbn.name *}&trade; connection date is {* sq.NBN.readyForService *} (subject to change). We will connect you when NBN arrives.
+                </p>
+            </div>
+            <div class="sq-action">
+                <p>Or try our great value {* productInfo.nbn.name *} alternatives<span ng-if="altTechs > 0">s</span></p>
+                <div ng-repeat="(key, altTech) in altTechs">
+                    <a tabindex="0" class="btn clickable btn-secondary enterInput multiline" ng-href="{* productInfo[altTech].url *}">
+                        <p>
+                            {* productInfo[altTech].name *}
+                            <span class="subtext">{* productInfo[altTech].nbnAltText *}</span>
+                        </p>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="text-center disclaimer5G" ng-if="is5GPreorder()">
+        *Your home's estimated 5G Home Broadband connection date is {* sq.WIRELESS5G.readyForService *} (Your 5G Home Broadband estimated connection date is subject to change). We will connect you when 5G arrives.
+    </div>
+    <div class="hw-contact">
+        Or <a class="clickable sq-action enterInput" data-res="contact " href="/nbn#contact">Let us contact you</a>
+    </div>
+</div>

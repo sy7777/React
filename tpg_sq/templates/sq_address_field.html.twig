@@ -1,0 +1,20 @@
+{% if display %}
+    {# OLD LEGACY SQ #}
+    {% if content_type not in ['dynamic_layout', 'marketing_campaign_landing'] and isAngularSq == false %}
+        {% if title %}
+            <h2 id="sq-heading" class="sq-heading">
+                Let&rsquo;s check your address to get started
+            </h2>
+        {% endif %}
+        <div class="check-availability" id="sq-wrapper">
+            <div class="location-icon"><span class="fa fa-map-marker" aria-hidden="true"></span></div>
+            <label for="address" class="hidden">Input for the address of your internet connection</label>
+            <input id="address" class="sq-address-input" placeholder="{{ placeholder }}" type="text" data-splash="yes" data-nomatch="dialog" data-business="{{ business_type }}" />
+        </div>
+    {% endif %}
+
+    {# DYNAMIC LAYOUT - USING ANGULAR  #}
+    {% if (content_type in ['dynamic_layout', 'marketing_campaign_landing']) or isAngularSq %}
+      {%  include '@tpg_sq/sq_address_field--dynamic_layout.html.twig' %}
+    {% endif %}
+{% endif %}

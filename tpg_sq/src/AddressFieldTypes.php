@@ -1,0 +1,407 @@
+<?php
+/**
+ * Address Field Types
+ *
+ * This class provides mappings for address field type abbreviations.
+ * @file
+ * Contains \Drupal\tpg_sq\AddressFieldTypes.
+ * @author Adrian Pennington
+ */
+namespace Drupal\tpg_sq;
+
+class AddressFieldTypes {
+    public function getStreetType($selected = 'all') {
+        $streetType = array();
+        $streetType["AV"]        = "Avenue";
+        $streetType["DR"]        = "Drive";
+        $streetType["RD"]        = "Road";
+        $streetType["ST"]        = "Street";
+        $streetType["breakline"] = "breakline";
+        $streetType["ACCS"]      = "Access";
+        $streetType["ACRE"]      = "Acre";
+        $streetType["ALLY"]      = "Alley";
+        $streetType["ALWY"]      = "Alleyway";
+        $streetType["AMBL"]      = "Amble";
+        $streetType["ANCG"]      = "Anchorage";
+        $streetType["APP"]       = "Approach";
+        $streetType["ARC"]       = "Arcade";
+        $streetType["ARTL"]      = "Arterial";
+        $streetType["ARTY"]      = "Artery";
+        $streetType["BA"]        = "Banan";
+        $streetType["BANK"]      = "Bank";
+        $streetType["BASN"]      = "Basin";
+        $streetType["BAY"]       = "Bay";
+        $streetType["BCH"]       = "Beach";
+        $streetType["BDGE"]      = "Bridge";
+        $streetType["BDWY"]      = "Broadway";
+        $streetType["BEND"]      = "Bend";
+        $streetType["BNDY"]      = "Boundary";
+        $streetType["BOWL"]      = "Bowl";
+        $streetType["BR"]        = "Brace";
+        $streetType["BRAE"]      = "Brae";
+        $streetType["BRAN"]      = "Branch";
+        $streetType["BRET"]      = "Brett";
+        $streetType["BRK"]       = "Break";
+        $streetType["BROW"]      = "Brow";
+        $streetType["BSWY"]      = "Busway";
+        $streetType["BULL"]      = "Bull";
+        $streetType["BVD"]       = "Boulevard";
+        $streetType["BVDE"]      = "Boulevarde";
+        $streetType["BWLK"]      = "Boardwalk";
+        $streetType["BYPA"]      = "Bypass";
+        $streetType["BYWY"]      = "Byway";
+        $streetType["CCT"]       = "Circuit";
+        $streetType["CH"]        = "Chase";
+        $streetType["CIR"]       = "Circle";
+        $streetType["CK"]        = "Creek";
+        $streetType["CL"]        = "Close";
+        $streetType["CLDE"]      = "Colonnade";
+        $streetType["CLM"]       = "Claim";
+        $streetType["CLR"]       = "Cluster";
+        $streetType["CLT"]       = "Circlet";
+        $streetType["CMMN"]      = "Common";
+        $streetType["CNR"]       = "Corner";
+        $streetType["CNTN"]      = "Connection";
+        $streetType["CNWY"]      = "Centreway";
+        $streetType["CON"]       = "Concourse";
+        $streetType["CONR"]      = "Connector";
+        $streetType["COVE"]      = "Cove";
+        $streetType["COWY"]      = "Crossway";
+        $streetType["CPS"]       = "Copse";
+        $streetType["CR"]        = "Crescent";
+        $streetType["CRCS"]      = "Circus";
+        $streetType["CRD"]       = "Crossroad";
+        $streetType["CRF"]       = "Crief";
+        $streetType["CRSE"]      = "Course";
+        $streetType["CRSG"]      = "Crossing";
+        $streetType["CRSS"]      = "Cross";
+        $streetType["CRST"]      = "Crest";
+        $streetType["CSAC"]      = "Cul-De-Sac";
+        $streetType["CSO"]       = "Corso";
+        $streetType["CSWY"]      = "Causeway";
+        $streetType["CT"]        = "Court";
+        $streetType["CTR"]       = "Centre";
+        $streetType["CTYD"]      = "Courtyard";
+        $streetType["CUT"]       = "Cut";
+        $streetType["CUTT"]      = "Cutting";
+        $streetType["CUWY"]      = "Cruiseway";
+        $streetType["DALE"]      = "Dale";
+        $streetType["DE"]        = "Deviation";
+        $streetType["DELL"]      = "Dell";
+        $streetType["DENE"]      = "Dene";
+        $streetType["DIP"]       = "Dip";
+        $streetType["DIV"]       = "Divide";
+        $streetType["DOCK"]      = "Dock";
+        $streetType["DOM"]       = "Domain";
+        $streetType["DOWN"]      = "Down";
+        $streetType["DSTR"]      = "Distributor";
+        $streetType["DVWY"]      = "Driveway";
+        $streetType["DWNS"]      = "Downs";
+        $streetType["EDGE"]      = "Edge";
+        $streetType["ELB"]       = "Elbow";
+        $streetType["END"]       = "End";
+        $streetType["ENT"]       = "Entrance";
+        $streetType["ESMT"]      = "Easement";
+        $streetType["ESP"]       = "Esplanade";
+        $streetType["EST"]       = "Estate";
+        $streetType["EXP"]       = "Expressway";
+        $streetType["EXTN"]      = "Extension";
+        $streetType["FARE"]      = "Fare";
+        $streetType["FAWY"]      = "Fairway";
+        $streetType["FERN"]      = "Fern";
+        $streetType["FITR"]      = "Firetrail";
+        $streetType["FLAT"]      = "Flat";
+        $streetType["FLNE"]      = "Fireline";
+        $streetType["FOLW"]      = "Follow";
+        $streetType["FORD"]      = "Ford";
+        $streetType["FORK"]      = "Fork";
+        $streetType["FORM"]      = "Formation";
+        $streetType["FRMS"]      = "Farms";
+        $streetType["FRNT"]      = "Front";
+        $streetType["FRTG"]      = "Frontage";
+        $streetType["FSHR"]      = "Foreshore";
+        $streetType["FTRK"]      = "Firetrack";
+        $streetType["FTWY"]      = "Footway";
+        $streetType["FWY"]       = "Freeway";
+        $streetType["GAP"]       = "Gap";
+        $streetType["GDN"]       = "Garden";
+        $streetType["GDNS"]      = "Gardens";
+        $streetType["GLDE"]      = "Glade";
+        $streetType["GLEN"]      = "Glen";
+        $streetType["GLY"]       = "Gully";
+        $streetType["GR"]        = "Grove";
+        $streetType["GRA"]       = "Grange";
+        $streetType["GRN"]       = "Green";
+        $streetType["GTE"]       = "Gate";
+        $streetType["GTES"]      = "Gates";
+        $streetType["GWY"]       = "Gateway";
+        $streetType["HILL"]      = "Hill";
+        $streetType["HIRD"]      = "Highroad";
+        $streetType["HLLW"]      = "Hollow";
+        $streetType["HTH"]       = "Heath";
+        $streetType["HTS"]       = "Heights";
+        $streetType["HUB"]       = "Hub";
+        $streetType["HVN"]       = "Haven";
+        $streetType["HWY"]       = "Highway";
+        $streetType["ID"]        = "Island";
+        $streetType["INLT"]      = "Inlet";
+        $streetType["INTG"]      = "Interchange";
+        $streetType["INTN"]      = "Intersection";
+        $streetType["JNC"]       = "Junction";
+        $streetType["KEY"]       = "Key";
+        $streetType["KEYS"]      = "Keys";
+        $streetType["KNOB"]      = "Knob";
+        $streetType["KNOL"]      = "Knoll";
+        $streetType["LAGN"]      = "Lagoon";
+        $streetType["LANE"]      = "Lane";
+        $streetType["LDG"]       = "Landing";
+        $streetType["LEES"]      = "Lees";
+        $streetType["LGH"]       = "Leigh";
+        $streetType["LINE"]      = "Line";
+        $streetType["LINK"]      = "Link";
+        $streetType["LKT"]       = "Lookout";
+        $streetType["LNWY"]      = "Laneway";
+        $streetType["LOOP"]      = "Loop";
+        $streetType["LT"]        = "Little";
+        $streetType["LWR"]       = "Lower";
+        $streetType["LYNN"]      = "Lynne";
+        $streetType["MALL"]      = "Mall";
+        $streetType["MANR"]      = "Manor";
+        $streetType["MART"]      = "Mart";
+        $streetType["MEAD"]      = "Mead";
+        $streetType["MEW"]       = "Mew";
+        $streetType["MEWS"]      = "Mews";
+        $streetType["MNDR"]      = "Meander";
+        $streetType["MTWY"]      = "Motorway";
+        $streetType["NOOK"]      = "Nook";
+        $streetType["NTH"]       = "North";
+        $streetType["OAKS"]      = "Oaks";
+        $streetType["OTLK"]      = "Outlook";
+        $streetType["OTLT"]      = "Outlet";
+        $streetType["OVAL"]      = "Oval";
+        $streetType["OVRB"]      = "Overbridge";
+        $streetType["PARK"]      = "Park";
+        $streetType["PART"]      = "Part";
+        $streetType["PASS"]      = "Pass";
+        $streetType["PATH"]      = "Path";
+        $streetType["PDE"]       = "Parade";
+        $streetType["PIAZ"]      = "Piazza";
+        $streetType["PKLD"]      = "Parklands";
+        $streetType["PKT"]       = "Pocket";
+        $streetType["PL"]        = "Place";
+        $streetType["PLZA"]      = "Plaza";
+        $streetType["PNT"]       = "Point";
+        $streetType["PORT"]      = "Port";
+        $streetType["PRDS"]      = "Paradise";
+        $streetType["PREC"]      = "Precinct";
+        $streetType["PROM"]      = "Promenade";
+        $streetType["PRST"]      = "Pursuit";
+        $streetType["PSGE"]      = "Passage";
+        $streetType["PSLA"]      = "Peninsula";
+        $streetType["PWAY"]      = "Pathway";
+        $streetType["PWY"]       = "Parkway";
+        $streetType["QDGL"]      = "Quadrangle";
+        $streetType["QDRT"]      = "Quadrant";
+        $streetType["QUAD"]      = "Quad";
+        $streetType["QY"]        = "Quay";
+        $streetType["QYS"]       = "Quays";
+        $streetType["RAMP"]      = "Ramp";
+        $streetType["RCH"]       = "Reach";
+        $streetType["RDGE"]      = "Ridge";
+        $streetType["RDWY"]      = "Roadway";
+        $streetType["REEF"]      = "Reef";
+        $streetType["RES"]       = "Reserve";
+        $streetType["REST"]      = "Rest";
+        $streetType["RGWY"]      = "Ridgeway";
+        $streetType["RIDE"]      = "Ride";
+        $streetType["RING"]      = "Ring";
+        $streetType["RISE"]      = "Rise";
+        $streetType["RMBL"]      = "Ramble";
+        $streetType["RND"]       = "Round";
+        $streetType["RNDE"]      = "Ronde";
+        $streetType["RNGE"]      = "Range";
+        $streetType["ROFW"]      = "Right Of Way";
+        $streetType["ROW"]       = "Row";
+        $streetType["ROWE"]      = "Rowe";
+        $streetType["ROWY"]      = "Right Of Way";
+        $streetType["RSBL"]      = "Rosebowl";
+        $streetType["RSNG"]      = "Rising";
+        $streetType["RTE"]       = "Route";
+        $streetType["RTN"]       = "Return";
+        $streetType["RTT"]       = "Retreat";
+        $streetType["RTY"]       = "Rotary";
+        $streetType["RUA"]       = "Rua";
+        $streetType["RUE"]       = "Rue";
+        $streetType["RUN"]       = "Run";
+        $streetType["RVR"]       = "River";
+        $streetType["RVRA"]      = "Riviera";
+        $streetType["RVWY"]      = "Riverway";
+        $streetType["SBWY"]      = "Subway";
+        $streetType["SDNG"]      = "Siding";
+        $streetType["SHUN"]      = "Shunt";
+        $streetType["SHWY"]      = "State Highway";
+        $streetType["SKLN"]      = "Skyline";
+        $streetType["SLPE"]      = "Slope";
+        $streetType["SPUR"]      = "Spur";
+        $streetType["SQ"]        = "Square";
+        $streetType["STAI"]      = "Strait";
+        $streetType["STPS"]      = "Steps";
+        $streetType["STRA"]      = "Strand";
+        $streetType["STRP"]      = "Strip";
+        $streetType["STRT"]      = "Straight";
+        $streetType["SVWY"]      = "Serviceway";
+        $streetType["TARN"]      = "Tarn";
+        $streetType["TCE"]       = "Terrace";
+        $streetType["THFR"]      = "Thoroughfare";
+        $streetType["THWY"]      = "Thoroughway";
+        $streetType["TKWY"]      = "Trunkway";
+        $streetType["TLWY"]      = "Tollway";
+        $streetType["TOP"]       = "Top";
+        $streetType["TOR"]       = "Tor";
+        $streetType["TRI"]       = "Triangle";
+        $streetType["TRK"]       = "Track";
+        $streetType["TRL"]       = "Trail";
+        $streetType["TRS"]       = "Trees";
+        $streetType["TURN"]      = "Turn";
+        $streetType["TWRS"]      = "Towers";
+        $streetType["UPAS"]      = "Underpass";
+        $streetType["UPR"]       = "Upper";
+        $streetType["VALE"]      = "Vale";
+        $streetType["VIAD"]      = "Viaduct";
+        $streetType["VIEW"]      = "View";
+        $streetType["VLLA"]      = "Villa";
+        $streetType["VLLS"]      = "Villas";
+        $streetType["VLLY"]      = "Valley";
+        $streetType["VSTA"]      = "Vista";
+        $streetType["VWS"]       = "Views";
+        $streetType["WADE"]      = "Wade";
+        $streetType["WALK"]      = "Walk";
+        $streetType["WAY"]       = "Way";
+        $streetType["WAYS"]      = "Ways";
+        $streetType["WD"]        = "Wood";
+        $streetType["WDS"]       = "Woods";
+        $streetType["WHRF"]      = "Wharf";
+        $streetType["WKWY"]      = "Walkway";
+        $streetType["WTRS"]      = "Waters";
+        $streetType["WYND"]      = "Wynd";
+        $streetType["YARD"]      = "Yard";
+
+        if ($selected != 'all') {
+            return $streetType[$selected];
+        } else {
+            return $streetType;
+        }
+    }
+
+    public function getStreetSuffix($selected = 'all') {
+        $streetSuffix = array();
+        $streetSuffix["N"]  = "North";
+        $streetSuffix["E"]  = "East";
+        $streetSuffix["W"]  = "West";
+        $streetSuffix["S"]  = "South";
+        $streetSuffix["CN"] = "Central";
+        $streetSuffix["SE"] = "South East";
+        $streetSuffix["DE"] = "Deviation";
+        $streetSuffix["SW"] = "South West";
+        $streetSuffix["UP"] = "Upper";
+        $streetSuffix["EX"] = "Extension";
+        $streetSuffix["LR"] = "Lower";
+        $streetSuffix["IN"] = "Inner";
+        $streetSuffix["ML"] = "Mall";
+        $streetSuffix["OF"] = "Off";
+        $streetSuffix["ON"] = "On";
+        $streetSuffix["NE"] = "North East";
+        $streetSuffix["OP"] = "Overpass";
+        $streetSuffix["NW"] = "North West";
+        $streetSuffix["OT"] = "Outer";
+
+        if ($selected != 'all') {
+            return $streetSuffix[$selected];
+        } else {
+            return $streetSuffix;
+        }
+    }
+
+    public function getUnitTypeCode($selected = 'all') {
+        $unitTypeCode = array();
+        $unitTypeCode["ANT"]  = "Antenna";
+        $unitTypeCode["APT"]  = "Apartment";
+        $unitTypeCode["ATM"]  = "AutomatedTellerMachine";
+        $unitTypeCode["BBQ"]  = "Barbecue";
+        $unitTypeCode["BLDG"] = "Building";
+        $unitTypeCode["BNGW"] = "Bungalow";
+        $unitTypeCode["BTSD"] = "Boatshed";
+        $unitTypeCode["CAGE"] = "Cage";
+        $unitTypeCode["CARP"] = "Carpark";
+        $unitTypeCode["CARS"] = "Carspace";
+        $unitTypeCode["CLUB"] = "Club";
+        $unitTypeCode["COOL"] = "Coolroom";
+        $unitTypeCode["CTGE"] = "Cottage";
+        $unitTypeCode["DUPL"] = "Duplex";
+        $unitTypeCode["FCTY"] = "Factory";
+        $unitTypeCode["FLAT"] = "Flat";
+        $unitTypeCode["GRGE"] = "Garage";
+        $unitTypeCode["HALL"] = "Hall";
+        $unitTypeCode["HSE"]  = "House";
+        $unitTypeCode["KSK"]  = "Kiosk";
+        $unitTypeCode["LBBY"] = "Lobby";
+        $unitTypeCode["LOFT"] = "Loft";
+        $unitTypeCode["LOT"]  = "Lot";
+        $unitTypeCode["LSE"]  = "Lease";
+        $unitTypeCode["MBTH"] = "MarineBerth";
+        $unitTypeCode["MSNT"] = "Maisonette";
+        $unitTypeCode["OFFC"] = "Office";
+        $unitTypeCode["RESV"] = "Reserve";
+        $unitTypeCode["ROOM"] = "Room";
+        $unitTypeCode["SE"]   = "Suite";
+        $unitTypeCode["SHED"] = "Shed";
+        $unitTypeCode["SHOP"] = "Shop";
+        $unitTypeCode["SHRM"] = "Showroom";
+        $unitTypeCode["SIGN"] = "Sign";
+        $unitTypeCode["SITE"] = "Site";
+        $unitTypeCode["STLL"] = "Stall";
+        $unitTypeCode["STOR"] = "Store";
+        $unitTypeCode["STR"]  = "Strataunit";
+        $unitTypeCode["STU"]  = "Studio";
+        $unitTypeCode["SUBS"] = "Substation";
+        $unitTypeCode["TNCY"] = "Tenancy";
+        $unitTypeCode["TNHS"] = "Townhouse";
+        $unitTypeCode["TWR"]  = "Tower";
+        $unitTypeCode["UNIT"] = "Unit";
+        $unitTypeCode["VLLA"] = "Villa";
+        $unitTypeCode["VLT"]  = "Vault";
+        $unitTypeCode["WARD"] = "Ward";
+        $unitTypeCode["WHSE"] = "Warehouse";
+        $unitTypeCode["WKSH"] = "Workshop";
+
+        if ($selected != 'all') {
+            return $unitTypeCode[$selected];
+        } else {
+            return $unitTypeCode;
+        }
+    }
+
+    public function getLevelType($selected = 'all') {
+        $leveltype = array();
+        $leveltype["B"]    = "Basement";
+        $leveltype["FL"]   = "Floor";
+        $leveltype["G"]    = "Ground";
+        $leveltype["L"]    = "Level";
+        $leveltype["LB"]   = "Lobby";
+        $leveltype["LG"]   = "Lower Ground Floor";
+        $leveltype["M"]    = "Mezzanine";
+        $leveltype["P"]    = "Parking";
+        $leveltype["PTHS"] = "Penthouse";
+        $leveltype["PLF"]  = "Platform";
+        $leveltype["PDM"]  = "Podium";
+        $leveltype["RT"]   = "Rooftop";
+        $leveltype["SB"]   = "Sub-Basement";
+        $leveltype["UG"]   = "Upper Ground Floor";
+
+        if ($selected != 'all') {
+            return $leveltype[$selected];
+        } else {
+            return $leveltype;
+        }
+    }  
+}

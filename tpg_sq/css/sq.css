@@ -1,0 +1,815 @@
+.sq-section:not(footer .sq-section) {
+    padding-top: 100px;
+    padding-bottom : 130px;
+    background: -webkit-gradient(linear, left bottom, left top, color-stop(0%, #FFFFFF), to(#EFEFEF));
+    background: -o-linear-gradient(bottom, #FFFFFF 0%, #EFEFEF 100%);
+    background: linear-gradient(0deg, #FFFFFF 0%, #EFEFEF 100%);
+}
+
+.sq-wrapper:not(footer .sq-wrapper) {
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 15px;
+    padding-right : 15px;
+    max-width : 1170px;
+    position: relative;
+}
+
+.sq-wrapper .nbn-logo-wrapper {
+    position : absolute;
+    top : -80px;
+    right: 20px;
+    width : 75px;
+    text-align: right;
+}
+
+.sq-wrapper .nbn-logo-wrapper img {
+    max-width : 100%;
+}
+
+.sq-wrapper .sq-heading {
+    font-size: 24px;
+    font-weight: 600 ;
+    text-transform : none;
+    letter-spacing : normal;
+    text-align : center;
+    margin-top : 0px;
+    margin-bottom : 20px;
+    border: none;
+}
+
+.sq-wrapper .check-availability {
+    display: flex;
+    border-radius: 8px;
+    width: 100%;
+    background-color : white;
+    padding : 10px 15px;
+    box-shadow: 0px 2px 2px #ccc;
+    max-width : 768px;
+    border : 3px solid transparent;
+    position: relative;
+}
+
+.sq-wrapper .check-availability.focus {
+    border-color: black;
+  }
+
+.sq-wrapper .check-availability .location-icon {
+    font-size: 30px;
+    color: #53006A;
+    line-height: 30px;
+    margin-right: 20px;
+    margin-top: 5px;
+}
+
+.sq-wrapper .check-availability input.sq-address-input {
+    height: 40px;
+    border: none;
+    background: none;
+    line-height: normal;
+    margin-bottom: 0px;
+    color: #222;
+    font-size: 18px;
+    font-family: "Roboto";
+    font-weight: 300;
+    padding : 0px;
+    width: 100%;
+}
+
+.sq-wrapper .check-availability input.sq-address-input:focus-visible {
+    outline: transparent;
+}
+
+.sq-wrapper .check-availability::after {
+    content: 'e.g. 200 Barangaroo Avenue, Barangaroo';
+    position: absolute;
+    font-size: 11px;
+    color: #444;
+    bottom: -22px;
+}
+
+#sqModal .modal-content
+#chooseNbN5gModal .modal-content {
+    border-radius: 2px;
+}
+
+#sqModal,
+#chooseNbN5gModal {
+    height: 100vh;
+    width: 100%;
+    margin: 0px;
+}
+
+.ui-autocomplete-loading {
+    background: url(../images/loading.gif) no-repeat scroll 99% center #fff !important;
+}
+
+.check-availability #ui-id-1 {
+    z-index: 1100;
+    /* width: 100% !important; */
+    margin-left: 45px;
+    margin-right: 15px;
+    /* max-width: 700px; */
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0px 4px 4px rgba(0,0,0,.3);
+    margin-top: -7px;
+    font-weight: 400;
+    font-family: "Roboto";
+    font-size: 14px;
+    line-height: 1.6;
+    padding : 0px !important;
+    color: #222;
+    overflow: hidden;
+    text-align: left;
+}
+
+.check-availability #ui-id-1 li {
+    padding: 5px 15px;
+}
+.check-availability #ui-id-1 li:hover,
+.check-availability #ui-id-1 li:focus {
+    background-color : #561666;
+    color :white;
+}
+.check-availability #ui-id-1 li:first-child {
+    padding-top: 6px;
+}
+.check-availability #ui-id-1 li:nth-last-child(2) {
+    padding-bottom: 6px;
+}
+.check-availability #ui-id-1 li:last-child {
+    padding-top: 8px;
+    padding-bottom: 10px;
+    border-top : 1px solid #aaa;
+    margin-bottom : 0px;
+    line-height: normal;
+}
+
+.check-availability #ui-id-1 li span {
+    padding: 0px;
+}
+
+.check-availability #ui-id-1 li a {
+    text-decoration: underline;
+    color: #eb008d;
+}
+.check-availability #ui-id-1 li:hover a {
+    color : #eee;
+}
+
+/** form styles **/
+
+.ui-widget-content {
+    border-color: #eee3f1;
+    border-radius: 0 0 4px 4px;
+    padding: 0 2px;
+    font-size: 90%;
+}
+
+ul.ui-widget-content li.ui-state-focus {
+    color: #561666;
+    background: #f4eef6;
+    border-color: #eee3f1;
+}
+
+ul.ui-widget-content li:last-child {
+    border-radius: 0 0 4px 4px;
+    margin-bottom: 1px;
+}
+
+/* modal */
+
+#sq-modal {
+    padding: 0px 15px;
+}
+
+.sq-modal .modal h2 {
+    text-align: left;
+    margin-top: 15px;
+    border-bottom: 0px;
+    margin-bottom: 0px;
+    margin-left: 4px;
+}
+
+.sq-modal .modal p {
+    text-align: left;
+}
+
+.sq-modal .modal-content {
+    left: -3px;
+    min-height: 250px;
+    border-top: 9px solid #561666;
+}
+
+.sq-modal div.modal-body {
+    max-height: 95vh;
+    overflow-y: auto;
+    max-width: 95vw;
+    overflow-x: hidden;
+}
+
+#addressFormModal {
+    font-size: 12px;
+}
+
+#addressFormModal p.form-logo {
+    background-image: url(/themes/poc/TPG_Telecom_logo.svg);
+    background-repeat: no-repeat;
+    background-position: 5px 0px;
+    background-size: 120px auto;
+    min-height: 30px;
+    padding: 10px;
+}
+
+.sq-modal p {
+    font-size: 100%;
+    margin-top: 10px;
+}
+
+.sq-modal div.modal-dialog {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    align-items: center;
+    margin: -10px 0px 10px 4px;
+}
+
+.sq-modal form {
+    float: none;
+    width: 100%;
+    margin: 12px auto 0 auto;
+    font-size: 110%;
+    padding-top: 3px;
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.sq-modal form div {
+    border: none;
+}
+
+.sq-modal form div div.form-group {
+    padding: 5px 0px;
+    width: 100%;
+    margin-right: 0px;
+    margin-left: 0px;
+    margin-bottom: 0px;
+}
+
+.sq-modal form div div.form-group:nth-child(even),
+.sq-modal form div div.form-group:nth-child(even) {
+    background-color: #f4eef6;
+}
+
+.sq-modal form optionalInfo .sq-modal form label {
+    width: 35%;
+    float: left;
+    padding-top: 7px;
+    padding-right: 5px;
+}
+
+.sq-modal form .col-sm-4 {
+    padding-left: 0px;
+}
+
+.sq-modal form div.col-sm-6 div.col-sm-8,
+.sq-modal form div.col-sm-6 div.col-sm-6 {
+    width: 65%;
+    float: right;
+    padding-left: 5px;
+}
+
+.sq-modal form div.col-sm-6 {
+    padding-left: 5px;
+    padding-right: 1px;
+    float: left;
+    width: 98.5%;
+}
+
+.sq-modal form div.col-sm-6 div.col-sm-6 {
+    width: 65%;
+    padding-right: 15px;
+}
+
+#block-maco-sqmodals .sq-modal .col-sm-6>div.form-group:first-of-type {
+    margin-top: 0px;
+}
+
+.sq-modal form select.input-sm,
+.sq-modal form input.input-sm {
+    font-size: 95%;
+    padding: 5px 3px !important;
+    margin-bottom: inherit;
+    height: 30px;
+    line-height: 100%;
+}
+
+.sq-modal form h4 span {
+    display: none;
+}
+
+.sq-modal form div.panel {
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+.sq-modal form .panel-title.h4 a {
+    display: block;
+    clear: both;
+    color: #561666;
+    text-decoration: none;
+    padding-top: 20px;
+    padding-bottom: 5px;
+    text-align: left;
+    border-bottom: 1px dotted #bda9c1;
+}
+
+.sq-modal form div.panel-heading {
+    padding: 5px 10px;
+    background-color: #fff;
+}
+
+.sq-modal form .panel-title.h4 a:after {
+    font-family: fontawesome;
+    content: "\f147";
+    float: right;
+    padding-right: 10px;
+}
+
+.sq-modal form .panel-title.h4 a.collapsed:after {
+    content: "\f196";
+}
+
+.sq-modal form .panel-title.h4 span.glyphicon {
+    display: none;
+}
+
+.sq-modal div.panel-body {
+    padding: 1px 5px;
+}
+
+.sq-modal form.sq-form label {
+    width: 35% !important;
+    padding-left: 0px;
+    float: left;
+    text-align: right;
+    clear: left;
+    padding-right: 8px;
+    padding-top: 5px;
+}
+
+.sq-modal form div.panel-body .form-group div.col-sm-3 {
+    width: 65%;
+    padding: 0 0 0 5px;
+    margin: 0px;
+    float: left;
+}
+
+.sq-modal form button {
+    width: 98%;
+    color: #ffffff;
+    font-size: 130%;
+    background-color: #561666;
+    margin-top: 10px;
+    padding: 10px;
+}
+
+.sq-modal form button.btn.disabled,
+.sq-modal form button.btn[disabled] {
+    cursor: not-allowed;
+    filter: alpha(opacity=50);
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    opacity: .5;
+    background-color: #999999;
+    color: #cccccc;
+}
+
+.sq-modal .sq-result .close {
+    font-size: 32px;
+    color: black;
+    opacity: 1;
+}
+
+.sq-modal .sq-result h4 {
+    color: #333;
+}
+
+.sq-modal .sq-result .btn-primary,
+.sq-modal .sq-result .btn-primary h4 {
+    color: white!important;
+}
+
+.sq-modal .sq-result a.btn.sq-action {
+    width: 100%;
+    text-align: center;
+    background-color: #561666;
+    color: #fff;
+    border-radius: 0px;
+    text-transform: none;
+    white-space: normal;
+    font-size: 16px;
+    font-weight: 300;
+}
+
+.sq-modal .sq-result a.btn.sq-action .action-info {
+    font-size: 13px;
+    padding: 3px 8px 0 8px;
+    color: #bbb;
+}
+
+.sq-processing message {
+    color: #202020;
+}
+
+.nbn-disconnection {
+    font-size: 11px;
+    font-weight: 400;
+    text-align: center;
+}
+
+#block-maco-sqmodals .sq-modal p .nbn-disconnection-date,
+#block-maco-sqmodals .sq-modal div .nbn-disconnection-date {
+    text-align: center;
+    max-width: fit-content;
+}
+
+.sq-disconnection {
+    color: #561666;
+    font-weight: 500;
+}
+
+.sq-disconnection-black {
+    color: #000;
+    font-weight: 500;
+}
+
+.ng-sq {
+    display:none;
+}
+
+.ng-sq.loaded {
+    display: block;
+}
+
+.ng-sq .inside_container {
+    background-color: #fff;
+    border-radius: 4px;
+}
+
+.ng-sq .sq-note {
+    font-size: 11px;
+}
+
+.ng-sq .sq-modal p {
+    font-size: 20px;
+    padding-bottom: 0px;
+}
+
+.ng-sq .sq-modal .btn {
+    margin-top: 30px;
+    margin-bottom: 25px;
+}
+
+.ng-sq .sq-modal .btn p {
+    color: #fff;
+    padding: 10px;
+}
+
+.ng-sq .inside_container h2 {
+    font-size: 26px;
+    border-bottom: 0 none;
+}
+
+#chooseNbN5gModal.sq-modal .sq-msg h4 {
+    color: #561666;
+    font-size: 20px;
+}
+#chooseNbN5gModal.sq-modal .sq-msg p {
+    color: rgb(51, 51, 51);
+    font-size: 16px;
+}
+#chooseNbN5gModal.sq-modal .sq-msg .button-wrapper .sq-action,
+#dynamicSQ .sq-msg .multiTech .button-wrapper .sq-action {
+    justify-content: center;
+    display: flex;
+    flex: 1 1 50%;
+    flex-direction: column;
+    text-align: center;
+    border-radius: 8px;
+    text-transform: none;
+    font-size: 14px;
+    color: #333;
+    font-weight: 400;
+    background-color: #F0F0F0;
+    padding: 20px;
+    margin : 0px 10px 10px;
+}
+#chooseNbN5gModal.sq-modal .sq-result .sq-msg .sq-action > div span.highlight,
+#dynamicSQ .sq-msg .multiTech  > div span.highlight {
+    color: #eb008d;
+}
+#chooseNbN5gModal .sq-result .sq-msg .sq-action a.btn.clickable,
+#dynamicSQ .sq-result .sq-msg .multiTech .sq-action a.btn.clickable {
+    text-align: center;
+    width: 100%;
+    max-width: 400px;
+    color: #FFF;
+    background-color: #eb008d;
+    box-shadow: 0px 2px 2px rgba(0,0,0,.35);
+    display: block;
+    font-size: 12px;
+    cursor: pointer;
+    white-space: normal;
+    padding: 0;
+    text-decoration: none !important;
+    margin: 8px auto;
+    font-weight: 400;
+    letter-spacing: 0;
+    font-family: Roboto, Helvetica,Arial,sans-serif;
+    border: none;
+    padding: 10px 20px;
+}
+
+#chooseNbN5gModal .sq-result .sq-msg .sq-action a.btn.clickable.multiline,
+#dynamicSQ .sq-result .sq-msg .multiTech .sq-action a.btn.clickable.multiline {
+    padding: 5px 15px;
+}
+
+#chooseNbN5gModal .sq-result .sq-msg .sq-action a.btn.clickable.btn-primary,
+#dynamicSQ .sq-result .sq-msg .multiTech .sq-action a.btn.clickable.btn-primary {
+    background: #eb008d;
+    background: -webkit-gradient(linear, left bottom, left top, color-stop(60%, #eb008d), to(#DC0285));
+    background: -o-linear-gradient(bottom, #eb008d 60%, #DC0285 100%);
+    background: linear-gradient(180deg, #eb008d 60%, #DC0285 100%);
+
+}
+
+#chooseNbN5gModal .sq-result .sq-msg .sq-action a.btn.clickable.btn-secondary,
+#dynamicSQ .sq-result .sq-msg .multiTech .sq-action a.btn.clickable.btn-secondary {
+    background: #eee;
+    background: -webkit-gradient(linear, left bottom, left top, color-stop(40%, #fff), to(#EFEFEF));
+    background: -o-linear-gradient(bottom, #fff 40%, #EFEFEF 100%);
+    background: linear-gradient(180deg, #fff 40%, #EFEFEF 100%);
+
+}
+
+#chooseNbN5gModal .sq-result .sq-msg .sq-action a.btn.clickable.btn-secondary p,
+#dynamicSQ .sq-result .sq-msg .multiTech .sq-action a.btn.clickable.btn-secondary p {
+    color: #561666 !important;
+}
+
+#chooseNbN5gModal .sq-result .sq-msg .sq-action a.btn.clickable p,
+#dynamicSQ .sq-result .sq-msg .multiTech .sq-action a.btn.clickable p {
+    padding: unset;
+    margin: unset;
+}
+
+#chooseNbN5gModal .sq-result .sq-msg .sq-action div.nbn-preorder-available,
+#chooseNbN5gModal .sq-result .sq-msg .sq-action div.fwa_5g_preorder-available {
+    line-height: normal;
+    font-size: 11px;
+    margin-top: -10px;
+}
+#chooseNbN5gModal .sq-result .sq-msg .sq-action div.nbn-preorder-available .nbn-preorder-date,
+#chooseNbN5gModal .sq-result .sq-msg .sq-action div.fwa_5g_preorder-available .fw5g-preorder-date {
+    white-space : nowrap;
+}
+
+#chooseNbN5gModal .sq-result .sq-msg .sq-action a.btn.clickable p,
+#dynamicSQ .sq-result .sq-msg .multiTech .sq-action a.btn.clickable p {
+    font-size: 15px;
+    color: #FFF;
+}
+
+#chooseNbN5gModal .sq-result .sq-msg .sq-action a.btn.clickable p .subtext,
+#dynamicSQ .sq-result .sq-msg .multiTech .sq-action a.btn.clickable p .subtext {
+    display: block;
+    font-size: 10px;
+    line-height: 15px;
+    text-transform: none;
+}
+
+#chooseNbN5gModal .sq-result .hw-contact, #dynamicSQ .sq-result .hw-contact {
+    top: 8px;
+    font-size: 14px;
+    position: relative;
+    clear: both;
+}
+#chooseNbN5gModal .sq-result .hw-contact a, #dynamicSQ .sq-result .hw-contact a {
+    color: #561666;
+    font-size: 14px;
+    display: inline;
+    font-weight: bold;
+    text-decoration: unset;
+}
+#chooseNbN5gModal .sq-result .hw-contact a:hover, #dynamicSQ .sq-result .hw-contact a:hover {
+    cursor: pointer;
+}
+
+#dynamicSQ .sq-msg>div {
+    float: inherit;
+    width: 100%;
+}
+
+#ng-sqresult .fa-check-circle:before {
+    content: "\f058";
+    font-size: 1.05em;
+    margin-right: 5px;
+    font-family: fontawesome;
+}
+
+#dynamicSQ .sq-msg .multiTech p {
+    font-size: 16px;
+}
+
+#dynamicSQResultContainer .sq-result-title {
+    font-size: 26px;
+    text-align: center;
+    margin: 5px;
+}
+
+#dynamicSQResultContainer .technology-container {
+    margin: 30px auto;
+}
+
+#dynamicSQResultContainer .coloured-title {
+    color: #561666;
+    font-weight: 700;
+    margin-bottom: 10px;
+    font-size: 26px;
+    text-align: center;
+}
+
+#dynamicSQResultContainer .productLinks {
+    color: #eb008d;
+}
+
+#dynamicSQResultContainer .productLinks:hover {
+    color: #23527c;
+}
+
+#dynamicSQResultContainer .disclaimer5G {
+    margin-bottom: 30px;
+    font-size: 14px;
+}
+
+#dynamicSQ .disclaimer5G {
+    font-size: 14px;
+    margin-top: 12px;
+}
+
+@media (min-width: 768px) {
+    .sq-wrapper .check-availability {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    #ui-id-1 li:last-child {
+        text-align : center;
+    }
+
+    .sq-modal .sq-result .button-wrapper .sq-action-group {
+        display: flex;
+    }
+
+    .sq-modal .modal-content {
+        width: 730px;
+        max-width: 730px;
+    }
+
+    .sq-modal div.sq-msg,
+    .sq-modal p {
+        font-size: 120%;
+        margin-top: 0px;
+    }
+
+    .sq-modal form div div.form-group {
+        padding: 5px 0px;
+        margin-right: 0px;
+        margin-left: 0px;
+        margin-bottom: 0px;
+    }
+
+    .sq-modal form label.control-label {
+        width: 40%;
+        padding-right: 8px;
+        padding-top: 6px;
+        white-space: nowrap;
+        color: #666666;
+    }
+
+    .sq-modal form .col-sm-8 {
+        width: 60%;
+    }
+
+    .sq-modal form div.col-sm-6:nth-child(odd) {
+        padding-left: 1px;
+        padding-right: 0px;
+        float: left;
+        width: 50%;
+    }
+
+    .sq-modal form div.col-sm-6:nth-child(even) {
+        padding-left: 0px;
+        padding-right: 1px;
+        float: left;
+        width: 50%;
+    }
+
+    .sq-modal form div.col-sm-6 div.col-sm-6 {
+        width: 60%;
+    }
+
+    .sq-modal form select.input-sm,
+    .sq-modal form input.input-sm {
+        font-size: 95%;
+        padding: 5px 3px;
+        float: left;
+    }
+
+    .sq-modal div.panel-body {
+        padding: 1px;
+    }
+
+    .sq-modal form div.panel-body .form-group {
+        width: 50%;
+        float: left;
+    }
+
+    .sq-modal div.panel-body div.form-group:nth-child(4n+1),
+    .sq-modal div.panel-body div.form-group:nth-child(4n+2) {
+        background-color: #ffffff;
+    }
+
+    .sq-modal div.panel-body div.form-group:nth-child(4n+3),
+    .sq-modal div.panel-body div.form-group:nth-child(4n+4) {
+        background-color: #f4eef6;
+    }
+
+    .sq-modal div.panel-body div.form-group:nth-child(4n+3)>div,
+    .sq-modal div.panel-body div.form-group:nth-child(4n+4)>div {
+        background-color: transparent;
+    }
+
+    .sq-modal form div.panel-body .form-group label {
+        width: 40% !important;
+        padding-left: 0px;
+        clear: none;
+        white-space: normal;
+    }
+
+    .sq-modal form div.panel-body .form-group div.col-sm-3 {
+        width: 54%;
+        padding: 0px;
+        margin: 0 5px;
+    }
+
+    .sq-modal form input {
+        height: 30px;
+        margin-bottom: inherit;
+    }
+    #chooseNbN5gModal.sq-modal .sq-msg p {
+        font-size: 20px;
+    }
+    #chooseNbN5gModal.sq-modal div.modal-body{
+        overflow-y: hidden;
+    }
+    #chooseNbN5gModal.sq-modal .sq-msg .button-wrapper .sq-action,
+    #dynamicSQ .sq-msg .button-wrapper .sq-action {
+        margin-top : 15px;
+    }
+}
+
+@media (min-width: 992px) {
+    .sq-modal .modal-content {
+        max-width: 900px;
+    }
+
+    .sq-modal form div.panel-body .form-group label {
+        width: 50% !important;
+        white-space: nowrap;
+    }
+
+    .sq-modal form div.panel-body .form-group div.col-sm-3 {
+        width: 47%;
+    }
+
+    #dynamicSQ .altTechs .techContainer .buttonContainers {
+        flex-direction: row;
+        justify-content: space-evenly;
+    }
+
+    #dynamicSQ .altTechs .techContainer .buttonContainers .altTechButton {
+        margin: 0 5px 0 5px;
+    }
+}
+
+#dynamicSQResultContainer .fibre-upgrade {
+    color: #EB008D;
+    text-decoration: underline;
+}

@@ -1,0 +1,30 @@
+<div ng-if="view === 'whenNbnIsAvailableWithAltTechs'" ng-init="getAltTechs('nbn')">
+    <h2 class="coloured-title">
+        Congratulations
+    </h2>
+    <div class="technology-container">
+        <h2 class="sq-result-title fa-check-circle">
+            {* productInfo.nbn.name *}
+            <span ng-if="sq.NBN.technology === 'Wireless'">Fixed Wireless</span>
+            <span ng-if="sq.NBN.res === 12">Pre-order</span> is available at your address
+        </h2>
+        <h2 class="sq-result-title" ng-if="altTechs.length > 0">
+            Alternatively
+            <span ng-repeat="(key, altTech) in altTechs">
+            <a class="productLinks" ng-href="{* productInfo[altTech].url *}">{* productInfo[altTech].name *}</a><span ng-if="altTechs.length -1 > key && key !== altTechs.length - 2">,</span>
+            <span ng-if="key === altTechs.length - 2">and</span>
+        </span>
+            <span ng-bind="altTechs.length === 1 ? 'is' : 'are'"></span> also available in your area
+        </h2>
+    </div>
+    <div class="text-center mb-20" ng-if="isNbnPage() && isFibreConnectAvailable()">
+        Your address is eligible for a <a class="fibre-upgrade" href="/nbn/fibre-upgrade">Fibre Upgrade</a>! Pick a plan below to get started.
+    </div>
+    <div class="text-center disclaimer5G" ng-if="is5GPreorder()">
+        *Your home's estimated 5G Home Broadband connection date is {* sq.WIRELESS5G.readyForService *} (Your 5G Home Broadband estimated connection date is subject to change). We will connect you when 5G arrives.
+    </div>
+    <div class="text-center">
+        <span class="sqAddress">{* sq.formed_fulladdress *}</span>
+        <a href="#" class="pl-10" ng-click="resetSq()">Change address</a>
+    </div>
+</div>

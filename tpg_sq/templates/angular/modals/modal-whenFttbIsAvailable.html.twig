@@ -1,0 +1,16 @@
+<div ng-if="modalView == 'modal-whenFttbIsAvailable'">
+    <h4>CONGRATULATIONS!</h4>
+    <p>We can provide you with a TPG
+        <span ng-if="sq.FTTB.res === 1 && sq.FTTB.technology !== 'FTTH'">{* productInfo.FTTB.name *}</span>
+        <span ng-if="sq.FTTB.res === 1 && sq.FTTB.technology === 'FTTH'">{* productInfo.FTTH.name *}</span>
+        plan</p>
+    <div class="button-wrapper">
+        <div class="sq-action-group">
+            <div class="sq-action">
+                <a class="clickable btn btn-primary btn-yframe" ng-href="{* sq.FTTB.technology === 'FTTH' ? '/ftth' : '/fttb' *}">
+                    <p>View plans</p>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

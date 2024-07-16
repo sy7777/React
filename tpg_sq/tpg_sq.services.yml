@@ -1,0 +1,4 @@
+services:
+  tpg_sq.onesq:
+    class: Drupal\tpg_sq\OneSQService
+    arguments: []

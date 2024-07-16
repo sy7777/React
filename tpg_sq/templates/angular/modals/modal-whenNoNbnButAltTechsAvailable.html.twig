@@ -1,0 +1,53 @@
+<div ng-if="modalView == 'modal-whenNoNbnButAltTechsAvailable'" class="multiTech text-center" ng-init="getAltTechs('nbn')">
+    <h4>This product is not available at your address</h4>
+    <p class="text-center">The good news is
+        <span ng-if="altTechs.length > 0" ng-repeat="(key, altTech) in altTechs">
+            <span ng-if="altTech === 'fwa_5g'">5G Home Broadband</span>
+            <span ng-if="altTech === 'fwa_4g'">Home Wireless Broadband</span>
+            <span ng-if="altTech === 'FTTB'">Fibre to the Building Technology</span>
+            <span ng-if="altTech === 'FTTH'">Fibre to the Home Technology</span>
+            <span ng-if="altTechs.length > 1 && key === 0"> and</span>
+        </span>
+        <span ng-bind="altTechs.length > 0 ? 'are' : 'is'"></span> available</p>
+
+    <div class="button-wrapper">
+        <div class="sq-action-group">
+            <div class="sq-action">
+                <div ng-if="sq.Services.fwa_5g == 1">
+                    <a tabindex="0" class="btn clickable btn-primary enterInput multiline" ng-href="/5g-home-broadband">
+                        <p>
+                            5G Home Broadband
+                            <span class="subtext">NBN25 - NBN100 alternative</span>
+                        </p>
+                    </a>
+                </div>
+                <div ng-if="sq.Services.fwa_4g == 1">
+                    <a tabindex="0" class="btn clickable btn-primary enterInput multiline" ng-href="/home-wireless-broadband">
+                        <p>
+                            Home Wireless Broadband
+                            <span class="subtext">NBN12 alternative</span>
+                        </p>
+                    </a>
+                </div>
+            </div>
+            <div class="sq-action">
+                <div>
+                    <a tabindex="0" class="btn clickable btn-secondary enterInput multiline" href="#" data-dismiss="modal" ng-click="resetSq()">
+                        <p>
+                            Try Again
+                            <span class="subtext">Ensure that all details are correct or check an alternate address</span>
+                        </p>
+                    </a>
+                </div>
+                <div>
+                    <a tabindex="0" class="btn clickable btn-secondary enterInput multiline" ng-click="showCommonsRegisterYourInterest()">
+                        <p>
+                            Let Us Contact You
+                            <span class="subtext">Leave your details and we will contact you to verify your address</span>
+                        </p>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

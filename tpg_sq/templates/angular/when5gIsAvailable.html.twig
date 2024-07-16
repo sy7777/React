@@ -1,0 +1,10 @@
+<div ng-if="view === 'when5gIsAvailable'">
+    <h2 class="coloured-big-title">
+        Congratulations
+    </h2>
+    <h2 class="title-big-pricing">
+        <a ng-href="{* productInfo.fwa_5g.url *}">{* productInfo.fwa_5g.name *}</a> is available at your address
+    </h2>
+    <span class="sqAddress">{* sq.formed_fulladdress *}</span>
+    <a href="#" class="pl-10" ng-click="resetSq()">Change address</a>
+</div>

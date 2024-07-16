@@ -1,0 +1,14 @@
+<div ng-if="modalView == 'modal-whenHighSpeedIsAvailable'">
+    <h4>HIGH-SPEED NBN IS AVAILABLE AT YOUR ADDRESS</h4>
+    <p ng-if="sq.NBN.nbn250Available == 'Yes' && sq.NBN.nbn1000Available == 'Yes'">You can get TPG NBN Home Superfast or Ultrafast at your address</p>
+    <p ng-if="sq.NBN.nbn250Available == 'Yes' && sq.NBN.nbn1000Available == 'No'">You can get TPG NBN Home Superfast at your address</p>
+    <div class="button-wrapper">
+        <div class="sq-action-group">
+            <div class="sq-action">
+                <a class="clickable btn btn-primary btn-yframe" href="/nbn#superfast-byo">
+                    <p>View plans</p>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

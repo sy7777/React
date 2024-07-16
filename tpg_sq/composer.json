@@ -1,0 +1,14 @@
+{
+  "name": "drupal/tpg_sq",
+  "type": "drupal-module",
+  "description": "TPG SQ Drupal Module",
+  "keywords": ["Drupal"],
+  "license": "GPL-2.0+",
+  "homepage": "https://www.drupal.org/project/tpg_sq",
+  "minimum-stability": "dev",
+  "support": {
+    "issues": "https://www.drupal.org/project/issues/tpg_sq",
+    "source": "http://cgit.drupalcode.org/tpg_sq"
+  },
+  "require": { }
+}

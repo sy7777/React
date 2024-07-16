@@ -1,0 +1,10 @@
+<div ng-if="view === 'whenIncompleteInvalid'">
+    <h2 class="title-big-pricing">
+        <p>The address you have entered is incomplete or invalid.</p>
+        <p>Please <a ng-click="resetSq()">try again</a> or <a href="/nbn#contact">leave your details</a> and we will contact you to verify your address</p>
+    </h2>
+    <div class="text-center">
+        <span class="sqAddress">{* sq.formed_fulladdress *}</span>
+        <a href="#" class="pl-10" ng-click="resetSq()">Change address</a>
+    </div>
+</div>

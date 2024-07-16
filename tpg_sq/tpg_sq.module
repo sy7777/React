@@ -1,0 +1,84 @@
+<?php
+
+/**
+ * @file
+ * Contains tpg_sq.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\tpg_sq\Plugin\Field\FieldFormatter\SQAddressFieldFormatter as angularSQ;
+
+/**
+ * Implements hook_help().
+ */
+function tpg_sq_help($route_name, RouteMatchInterface $route_match) {
+    switch ($route_name) {
+        // Main module help for the tpg_sq module.
+        case 'help.page.tpg_sq':
+            $output = '';
+            $output .= '<h3>' . t('About') . '</h3>';
+            $output .= '<p>' . t('TPG SQ Drupal Module') . '</p>';
+            return $output;
+
+        default:
+    }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function tpg_sq_theme() {
+    return [
+        'tpg_sq' => [
+            'template' => 'tpg_sq',
+            'render element' => 'children',
+            'variables' => array(
+                'title' => 'Let\'s check your address to get started',
+                'placeholder' => 'Start typing your address',
+                'show_address' => null,
+                'address_bkdown' => 'dialog',
+                'business_type' => 0,
+            ),
+        ],
+        'sq_address_field' => [
+            'template' => 'sq_address_field',
+            'render element' => 'children',
+            'variables' => array(
+                'display' => 1,
+                'title' => '',
+                'placeholder' => 'Start typing your address',
+                'splash' => 'no',
+                'address_bkdown' => 'none',
+                'business_type' => 0,
+                'content_type' => '',
+                'isAngularSq' => false
+            ),
+        ],
+        'sq_modals' => [
+            'template' => 'sq_modals',
+            'render element' => 'children',
+            'variables' => array(),
+        ],
+        'sq_modal_content' => [
+            'template' => 'sql_modal_content',
+            'variables' => array(),
+        ]
+    ];
+}
+
+/**
+ * Implements hook_preprocess().
+ */
+function tpg_sq_preprocess_html(&$variables) {
+    $node = \Drupal::routeMatch()->getParameter('node');
+    if ($node instanceof \Drupal\node\NodeInterface && in_array($node->getType(), ['dynamic_layout', 'marketing_campaign_landing']) || angularSQ::isAngularSq()) {
+        $variables['attributes']['ng-app'] = 'productApp';
+    }
+}
+
+/**
+ * Implements hook_page_attachments().
+ */
+function tpg_sq_page_attachments(&$variables, $hook = null) {
+    // $variables['#attached']['library'][] = 'tpg_sq/sq'; - see SQModals.php
+}

@@ -1,0 +1,36 @@
+sq:
+  version: 1.x;
+  css:
+    component:
+      css/sq.css: {}
+  js:
+    js/jquery-ui.autocomplete.html.js: {}
+    js/sqStorage.js: {}
+    js/sqToggle.js: {}
+    js/sq.js: {}
+    js/homeWireless.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupal.autocomplete
+
+sq-angular:
+  version: 1.x
+  js:
+    /modules/custom/tpg_product/js/TpgProductCommon.js: {}
+    js/angular/sqRules/sq-rules.js: {}
+    js/angular/sqRules/sq-alt-tech-rules.js: {}
+    js/angular/sqRules/sq-redirect-rules.js: {}
+    js/angular/sq-product-info.js: {}
+    js/angular/sq-app.js: {}
+    js/angular/sq-result.controller.js: {}
+    js/angular/sq-result.service.js: {}
+    js/angular/sq-rule-manager.service.js: {}
+    js/angular/sq-rule.service.js: {}
+    js/angular/sq-storage.service.js: {}
+    js/angular/sq-ui.service.js: {}
+    js/angular/sq-debug.service.js: {}
+    js/angular/sq-alt-tech.service.js: {}
+
+  dependencies:
+    - core/jquery
+    - maco/angular

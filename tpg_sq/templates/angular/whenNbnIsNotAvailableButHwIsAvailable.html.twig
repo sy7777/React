@@ -1,0 +1,14 @@
+<div ng-if="view === 'whenNbnIsNotAvailableButHwIsAvailable'">
+    <h2 class="title-big-pricing">
+        This product is not available at your address
+    </h2>
+    <h3>
+        <p>The good news is
+            <span ng-if="sq.Services.fwa_4g == 1 && sq.Services.fwa_5g != 1"><a href="/home-wireless-broadband">HOME WIRELESS BROADBAND</a> is</span>
+            <span ng-if="sq.Services.fwa_4g != 1 && sq.Services.fwa_5g == 1"><a href="/5g-home-broadband">5G HOME BROADBAND</a> is</span>
+            <span ng-if="sq.Services.fwa_4g == 1 && sq.Services.fwa_5g == 1"><a href="/home-wireless-broadband">HOME WIRELESS BROADBAND</a> & <a href="/5g-home-broadband">5G HOME BROADBAND</a> are</span>
+            available at your address</p>
+    </h3>
+    <span class="sqAddress">{* sq.formed_fulladdress *}</span>
+    <a href="#" class="pl-10" ng-click="resetSq()">Change address</a>
+</div>

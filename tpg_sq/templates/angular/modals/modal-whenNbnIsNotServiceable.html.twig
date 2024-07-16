@@ -1,0 +1,27 @@
+<div ng-if="modalView == 'modal-whenNbnIsNotServiceable'" class="multiTech text-center" ng-init="getAltTechs('nbn')">
+    <h4 class="text-center mt-30"><span ng-if="altTechs.length <= 0">TPG services</span>
+         <span ng-if="altTechs.length > 0">NBN services</span>
+        are not yet available in your area</h4>
+
+    <h4 class="sq-result-title text-center" ng-if="altTechs.length > 0">
+        Alternatively
+        <span ng-repeat="(key, altTech) in altTechs">
+            <a class="productLinks" ng-href="{* productInfo[altTech].url *}">{* productInfo[altTech].name *}</a><span ng-if="altTechs.length -1 > key && key !== altTechs.length - 2">,</span>
+            <span ng-if="key === altTechs.length - 2">and</span>
+        </span>
+        <span ng-bind="altTechs.length === 1 ? 'is' : 'are'"></span> also available in your area
+    </h4>
+
+    <div class="button-wrapper">
+        <div class="sq-action-group">
+            <div class="sq-action">
+                <a class="clickable btn btn-primary btn-yframe " href="/nbn#waitlist-dynamic">
+                    <p>
+                        Join our NBN waitlist
+                        <span class="subtext">TPG will contact you when your home becomes ready.</span>
+                    </p>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
