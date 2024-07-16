@@ -46,6 +46,22 @@
 			}
 		};
 	})(jQuery, Drupal);
+
+
+	<script>
+		(function ($) {
+		  $(document).ready(function() {
+			$('#address').autocomplete({
+			  open: function() {
+				var $autocompleteMenu = $('.ui-autocomplete');
+				var currentLeft = parseInt($autocompleteMenu.css('left'), 10);
+				$autocompleteMenu.css('left', (currentLeft + 10) + 'px');
+			  }
+			});
+		  });
+		})(jQuery);
+		</script>
+		
 	
 
 </body>
