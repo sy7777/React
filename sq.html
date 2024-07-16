@@ -33,6 +33,21 @@
 		<li class="ui-menu-item"><span id="ui-id-14" tabindex="-1" class="ui-menu-item-wrapper">Can't find your address?
 				<br class="visible-xs"><a href="#">Enter your address manually</a></span></li>
 	</ul>
+	(function ($, Drupal) {
+		Drupal.behaviors.customAutocompleteAdjustment = {
+			attach: function (context, settings) {
+				$("#address").autocomplete({
+					open: function() {
+						var $autocompleteMenu = $('.ui-autocomplete');
+						var currentLeft = parseInt($autocompleteMenu.css('left'), 10);
+						$autocompleteMenu.css('left', currentLeft + 10 + 'px');
+					}
+				});
+			}
+		};
+	})(jQuery, Drupal);
+	
+
 </body>
 
 </html>
