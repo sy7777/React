@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-
+import { useState, useReducer } from 'react';
 const pizzaData = [
   {
     name: "Focaccia",
@@ -47,58 +47,100 @@ const pizzaData = [
   },
 ];
 
-function App(){
+function App() {
+  // const [status, setStatus] = useState(true);
+  const [status, toggle] = useReducer((status) => !status, true);
+
   return (
-    <div>
-      <Header />
-      <Menu />
+    <div className='container'>
+      <h1>The restaurant is currently {status ? "open" : "closed"}.</h1>
+      <button onClick={ toggle }>{status ? "closed" : "open"} restaurant</button>
+      <Header name="Yuqi" year={new Date().getFullYear()} />
+      <Menu pizza={pizzaData} openStatus={status} onStatus={toggle} />
       <Footer />
     </div>
 
-)}
+  )
+}
 
-function Pizza(){
+function Pizza({ name, ingredients, price, photoName, soldOut }) {
   return (
-    <div>
-      <img src="pizzas/spinaci.jpg" alt="Pizaa spinact" srcSet="" />
-       <h2>Pizza</h2>
-       <p>this is a description</p>
+    <li className={`pizza ${soldOut ? 'sold-out' : ''}`}>
+      <img src={photoName} alt={name} />
+      <div>
+        <h3>{name}</h3>
+        <p>{ingredients}</p>
+        <p>{soldOut ? 'sold out' : price}</p>
+      </div>
+    </li>
+
+  );
+}
+// destructure objects in function parameters
+// function Header(props){
+//   return <h1>{props.name}'s Fast Pizza</h1>
+// }
+
+function Header({ name, year }) {
+  return (
+    <header className="header">
+      <h1>{name}'s Fast Pizza in {year}</h1>
+    </header>
+  );
+}
+
+function Menu({ pizza, openStatus, onStatus }) {
+  return (
+    <div className="menu">
+      <button onClick={() => onStatus(true)}>I wanna be open</button>
+      <h2>Welcom{""}{openStatus ? "open" : "closed"}</h2>
+      <h2>Our menu</h2>
+      <ul className="pizzas">
+        {pizza.map((pizzaItem) => {
+          return <Pizza key={pizzaItem.name} {...pizzaItem} />
+        })}
+      </ul>
     </div>
   );
 }
 
-function Header(){
-  return <h1>Fast Pizza</h1>
-}
-
-function Menu(){
-  return (
-  <div>
-    <h2>Our menu</h2>
-    <Pizza />
-    <Pizza />
-  </div>)
-}
-
-function Footer(){
+function Footer() {
   const hour = new Date().getHours();
-  const openHour = 12;
-  const closeHour =24;
-  const isOpen = hour >= openHour &&  hour <= closeHour;
+  const openHour = 9;
+  const closeHour = 24;
+  const isOpen = hour >= openHour && hour <= closeHour;
   console.log(isOpen);
   console.log("jinlaile ");
-  
+
   // if(hour >= openHour &&  hour <= closeHour) alert('We are open');
   // else alert('We are closed');
   return (
-    <footer>{new Date().toLocaleDateString()}. We're currently  open</footer>
-)
+    <footer className='footer'>
+      {isOpen ? (
+        <Order closeHour={closeHour} openHour={openHour} />
+      ) : (
+        <p> We're happy to welcome you between {openHour}:00 and {closeHour}:00.</p>
+      )}
+    </footer>
+  )
   // return React.createElement('footer', null, 'We are currently open')
+}
+
+function Order({ closeHour, openHour }) {
+  return (
+    <div className='order'>
+      <p>
+        We're open from {openHour}:00 to {closeHour}:00. Come visit us or order
+        online.
+      </p>
+      <button className='btn'>Order</button>
+    </div>
+  )
 }
 // react v18
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-<App />
+  <App />
 );
 
 // react before 18
