@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import { useState, useReducer } from 'react';
+import { useState, useReducer, useEffect } from 'react';
 const pizzaData = [
   {
     name: "Focaccia",
@@ -50,11 +50,13 @@ const pizzaData = [
 function App() {
   // const [status, setStatus] = useState(true);
   const [status, toggle] = useReducer((status) => !status, true);
-
+  useEffect(() => {
+    console.log(`${status}`);
+    },[status]);
   return (
     <div className='container'>
       <h1>The restaurant is currently {status ? "open" : "closed"}.</h1>
-      <button onClick={ toggle }>{status ? "closed" : "open"} restaurant</button>
+      <button onClick={toggle}>{status ? "closed" : "open"} restaurant</button>
       <Header name="Yuqi" year={new Date().getFullYear()} />
       <Menu pizza={pizzaData} openStatus={status} onStatus={toggle} />
       <Footer />
@@ -109,8 +111,6 @@ function Footer() {
   const openHour = 9;
   const closeHour = 24;
   const isOpen = hour >= openHour && hour <= closeHour;
-  console.log(isOpen);
-  console.log("jinlaile ");
 
   // if(hour >= openHour &&  hour <= closeHour) alert('We are open');
   // else alert('We are closed');
