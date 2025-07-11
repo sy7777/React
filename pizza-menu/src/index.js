@@ -1,7 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import { useState, useReducer, useEffect } from 'react';
+import { useReducer, useEffect } from 'react';
+import { Link, BrowserRouter, Routes, Route } from 'react-router-dom'; // Assuming you have react-router installed
+import ContactPage from './app/contact/page';
+import MountainPage from './app/mountain/page';
 const pizzaData = [
   {
     name: "Focaccia",
@@ -52,17 +55,25 @@ function App() {
   const [status, toggle] = useReducer((status) => !status, true);
   useEffect(() => {
     console.log(`${status}`);
-    },[status]);
+  }, [status]);
   return (
     <div className='container'>
       <h1>The restaurant is currently {status ? "open" : "closed"}.</h1>
       <button onClick={toggle}>{status ? "closed" : "open"} restaurant</button>
       <Header name="Yuqi" year={new Date().getFullYear()} />
-      <Menu pizza={pizzaData} openStatus={status} onStatus={toggle} />
+      <nav>
+        <Link to="/">Menu</Link> |{" "}
+        <Link to="/contact">Contact Us</Link> |{" "}
+        <Link to="/mountain">Mountain</Link>
+      </nav>
+      <Routes>
+        <Route path="/" element={<Menu pizza={pizzaData} openStatus={status} onStatus={toggle} />} />
+        <Route path="/contact" element={<ContactPage />} />
+        <Route path="/mountain" element={<MountainPage />} />
+      </Routes>
       <Footer />
     </div>
-
-  )
+  );
 }
 
 function Pizza({ name, ingredients, price, photoName, soldOut }) {
@@ -89,6 +100,7 @@ function Header({ name, year }) {
       <h1>{name}'s Fast Pizza in {year}</h1>
     </header>
   );
+
 }
 
 function Menu({ pizza, openStatus, onStatus }) {
@@ -140,7 +152,9 @@ function Order({ closeHour, openHour }) {
 // react v18
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <App />
+  <BrowserRouter>
+    <App />
+  </BrowserRouter>
 );
 
 // react before 18
